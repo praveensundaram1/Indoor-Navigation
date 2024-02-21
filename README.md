@@ -1,4 +1,4 @@
-# Last-Lock-Team-01 - `Main` Branch
+# Last-Lock-Team-02 - `Main` Branch
 
 ## Introduction 
 The provided code represents an iOS app using SwiftUI and ARKit for a partial solution to indoor navigation. Here's a general overview of how the app works:
