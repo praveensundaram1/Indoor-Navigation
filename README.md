@@ -1,2 +1,0 @@
-# Indoor-Navigation
-Indoor Nav
