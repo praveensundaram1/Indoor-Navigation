@@ -51,7 +51,7 @@ struct ContentView: View {
                         .foregroundColor(.black)
                         .padding(.top, 50)
                     VStack {
-                        Image(.lastlocklogo)
+                        Image("lastlocklogo")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 180, height: 180, alignment: .center)
