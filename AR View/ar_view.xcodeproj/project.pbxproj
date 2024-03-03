@@ -23,6 +23,8 @@
 		CA5F84592AE87AFB0074301B /* CustomARViewRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F84582AE87AFB0074301B /* CustomARViewRep.swift */; };
 		CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */; };
 		CAE12A4B2AE9BE330013660E /* Arrow.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CAE12A4A2AE9BE330013660E /* Arrow.usdz */; };
+		F00C1A9A2B93A64000684DBA /* Room.scn in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A992B93A64000684DBA /* Room.scn */; };
+		F00C1A9C2B93A8DF00684DBA /* CapturedRoom.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A9B2B93A8DF00684DBA /* CapturedRoom.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		CA5F84582AE87AFB0074301B /* CustomARViewRep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARViewRep.swift; sourceTree = "<group>"; };
 		CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARNavView.swift; sourceTree = "<group>"; };
 		CAE12A4A2AE9BE330013660E /* Arrow.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Arrow.usdz; path = ar_view/Arrow.usdz; sourceTree = SOURCE_ROOT; };
+		F00C1A992B93A64000684DBA /* Room.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Room.scn; sourceTree = "<group>"; };
+		F00C1A9B2B93A8DF00684DBA /* CapturedRoom.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = CapturedRoom.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		CA5F841F2AE87A010074301B = {
 			isa = PBXGroup;
 			children = (
+				F00C1A992B93A64000684DBA /* Room.scn */,
 				CA5F842A2AE87A010074301B /* ar_view */,
 				CA5F843B2AE87A030074301B /* ar_viewTests */,
 				CA5F84452AE87A030074301B /* ar_viewUITests */,
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE12A4A2AE9BE330013660E /* Arrow.usdz */,
+				F00C1A9B2B93A8DF00684DBA /* CapturedRoom.usdz */,
 				CA5F84552AE87A5A0074301B /* Feature Targets */,
 				CA5F842B2AE87A010074301B /* ar_viewApp.swift */,
 				CA5F842F2AE87A030074301B /* Assets.xcassets */,
@@ -275,6 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA5F84332AE87A030074301B /* Preview Assets.xcassets in Resources */,
+				F00C1A9C2B93A8DF00684DBA /* CapturedRoom.usdz in Resources */,
+				F00C1A9A2B93A64000684DBA /* Room.scn in Resources */,
 				CA5F84302AE87A030074301B /* Assets.xcassets in Resources */,
 				CAE12A4B2AE9BE330013660E /* Arrow.usdz in Resources */,
 			);
