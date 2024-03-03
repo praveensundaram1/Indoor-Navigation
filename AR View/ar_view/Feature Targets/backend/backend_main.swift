@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RoomPlan
+import SceneKit
 
 //print("Hello, World!")
 
@@ -129,24 +131,106 @@ func consolidateSteps(steps: [[Double]]) -> [[Double]] {
 //
 //print(graph.description)
 
-var northWall = Obstacle(obstacleCorner1: [0,0,0], obstacleCorner2: [10,0,0])
-var southWall = Obstacle(obstacleCorner1: [0,0,-10], obstacleCorner2: [10,0,-10])
-var westWall = Obstacle(obstacleCorner1: [0,0,0], obstacleCorner2: [0,0,-10])
-var eastWall = Obstacle(obstacleCorner1: [10,0,0], obstacleCorner2: [10,0,-10])
+//var captureRoomData = capturedRoom(from: CapturedRoom)
 
-var table = Obstacle(obstacleCorner1: [3, 0, -1], obstacleCorner2: [8, 0, -5])
+//We can display it as a scene
+// Create a SCNNode to hold the 3D content and add it to the scene
+//private func displayUSDZFile() {
+//        guard let scene = SCNScene(named: "Room")
+//            else { fatalError("Unable to load scene file.") }
+//        let rootNode = SCNNode()
+//        for childNode in scene.rootNode.childNodes {
+//            rootNode.addChildNode(childNode)
+//            print(childNode.name!)
+//        }
+//        scene.rootNode.addChildNode(rootNode)
+//    
+//        
+////        // Set the created scene as the scene property of the SCNView
+////        sceneView.scene = scene
+////        
+////        // Optionally, configure the scene view properties
+////        sceneView.autoenablesDefaultLighting = true
+////        sceneView.allowsCameraControl = true
+//}
+extension SCNVector3 : CustomStringConvertible {
+    public var description: String {
+        return "[\(self.x), \(self.y), \(self.z)]"
+    }
+    public var toDouble: [Double] {
+        return [Double(self.x), Double(self.y), Double(self.z)]
+    }
+}
 
-var testRoom = Room(doors: [], name: "testroom", obstacles: [northWall,southWall,eastWall,westWall, table])
+
+func getRoomScanInfo() {
+    //Load in scan from convert scn file
+    guard let scene = SCNScene(named: "Room.scn")
+    else { fatalError("Unable to load scene file.") }
+    
+    
+    print(scene.rootNode.childNodes)
+    
+    //THIS IS FOR A SINGLE ROOM IN A SCAN, WOULD NEED TO ADD FUNCTIONALITY TO ITERATE THROUGH ROOMS IN FUTURE
+    var roomObstacles: [Obstacle] = []
+    var roomDoors: [Door] = []
+    
+    //Go through elements within Parametric
+    for elementCategories in scene.rootNode.childNodes.first!.childNodes.first!.childNodes {
+        for roomElements in elementCategories.childNodes {
+            
+//            print("Room Elements:" + roomElements.name!)
+            for elementInfo in roomElements.childNodes {
+                let elementName = elementInfo.name!
+                //Convert from relativce object positions to scene world positions
+                let worldCorner1 = elementInfo.convertPosition(elementInfo.boundingBox.min, to: scene.rootNode)
+                let worldCorner2 = elementInfo.convertPosition(elementInfo.boundingBox.max, to: scene.rootNode)
+//                print("Element Info: " + elementName + " " + worldCorner1.description + " " + worldCorner2.description)
+                
+                //Create objects (Add Chair And Storage Object Later)
+                if (elementName.starts(with: "Wall") || elementName.starts(with: "Table")) {
+                    roomObstacles.append(Obstacle(obstacleCorner1: worldCorner1.toDouble, obstacleCorner2: worldCorner2.toDouble))
+                }
+                if (elementName.starts(with: "Door")) {
+                    roomDoors.append(Door(doorCorner1: worldCorner1.toDouble, doorCorner2: worldCorner2.toDouble))
+                }
+
+            }
+        }
+    }
+    let testRoom = Room(doors: roomDoors, name: "testroom", obstacles: roomObstacles)
+    print(testRoom)
+    //init start coor as table 0 for example
+    let startCoor = Room.Coordinate(x: -0.7596692, y: -0.97389185, z: -0.028565079)
+    //init end coor as door 3 for example
+    let endCoor = Room.Coordinate(x: 4.344256, y: -1.6196804, z: 0.09232491)
+    
+    //Some issue still with shortest node path
+//    let testSteps = testRoom.shortestNodePath(startCoord: startCoor, endCoord: endCoor)
+//    let consolidateTestSteps = consolidateSteps(steps: testSteps)
+//    print(consolidateTestSteps)
+
+}
+
+
+//var northWall = Obstacle(obstacleCorner1: [0,0,0], obstacleCorner2: [10,0,0])
+//var southWall = Obstacle(obstacleCorner1: [0,0,-10], obstacleCorner2: [10,0,-10])
+//var westWall = Obstacle(obstacleCorner1: [0,0,0], obstacleCorner2: [0,0,-10])
+//var eastWall = Obstacle(obstacleCorner1: [10,0,0], obstacleCorner2: [10,0,-10])
+//
+//var table = Obstacle(obstacleCorner1: [3, 0, -1], obstacleCorner2: [8, 0, -5])
+//
+//var testRoom = Room(doors: [], name: "testroom", obstacles: [northWall,southWall,eastWall,westWall, table])
 
 //print(testRoom.isCollision(prevLocation: [5, 0, -1.5], step: [0, 0, 1]))
 
-let startCoor = Room.Coordinate(x: 1, y: 0, z: -1)
-let endCoor = Room.Coordinate(x: 9, y: 0, z: -9)
-
-let testSteps = testRoom.shortestNodePath(startCoord: startCoor, endCoord: endCoor)
-//print(testSteps)
-
-let consolidateTestSteps = consolidateSteps(steps: testSteps)
+//let startCoor = Room.Coordinate(x: 1, y: 0, z: -1)
+//let endCoor = Room.Coordinate(x: 9, y: 0, z: -9)
+//
+//let testSteps = testRoom.shortestNodePath(startCoord: startCoor, endCoord: endCoor)
+////print(testSteps)
+//
+//let consolidateTestSteps = consolidateSteps(steps: testSteps)
 
 //func readAndPrintOBJFile(atPath filePath: String) {
 //    do {

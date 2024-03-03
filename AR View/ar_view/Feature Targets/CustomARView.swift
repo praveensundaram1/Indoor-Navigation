@@ -45,6 +45,9 @@ class CustomARView: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //init backend
+        getRoomScanInfo()
+        
         // Initialize the scene view
         sceneView = ARSCNView(frame: view.frame)
         view.addSubview(sceneView)
