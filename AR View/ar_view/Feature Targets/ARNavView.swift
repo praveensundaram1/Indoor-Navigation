@@ -11,6 +11,7 @@ struct ARViewWithBars: View {
     @State private var isFlashing = false // State variable to control flashing behavior.
     @State private var direction = "" // State variable to store the navigation direction.
     @Binding var roomNum: String // Binding to the room number entered by the user.
+    @State private var isClicked = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -55,9 +56,59 @@ struct ARViewWithBars: View {
                         .padding()
                     Spacer()
                 }
-                .padding(.bottom)
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        NavigationLink(destination: EventsView()) {
+                        //NavigationLink(destination: EventsView()) {
+                            Text("Events")
+                                .bold()
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }
+                        Spacer()
+                        Button(action: {
+                            self.isClicked = true
+                        }) {
+                            Text("Friends")
+                                .bold()
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.green)
+                                .cornerRadius(10)
+                        }
+                        Spacer()
+                        Button(action: {
+                            self.isClicked = true
+                        }) {
+                            Text("Reservations")
+                                .bold()
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.green)
+                                .cornerRadius(10)
+                        }
+                        Spacer()
+                        Button(action: {
+                            self.isClicked = true
+                        }) {
+                            Text("Other")
+                                .bold()
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.green)
+                                .cornerRadius(10)
+                        }
+                    }
+                }
+//                .padding(.bottom)
                 .background(Color.blue.opacity(0.5))
-                .frame(height: 80) // Adjust the height of the bottom bar
+                .frame(height: 150) // Adjust the height of the bottom bar
             }
             .ignoresSafeArea()
         }

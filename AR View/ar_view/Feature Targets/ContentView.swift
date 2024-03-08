@@ -68,6 +68,7 @@ struct ContentView: View {
                         .padding(.bottom, 20)
                     // NavigationLink to transition to ARViewWithBars when "Start AR View" is tapped.
                     NavigationLink(destination: ARViewWithBars(roomNum: $roomNumber).ignoresSafeArea()) {
+                    //NavigationLink(destination: EventsView()) {
                         Text("Start AR View")
                             .bold()
                             .font(.system(size: 20))
