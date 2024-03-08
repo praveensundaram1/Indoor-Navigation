@@ -55,9 +55,35 @@ struct ARViewWithBars: View {
                         .padding()
                     Spacer()
                 }
-                .padding(.bottom)
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        NavigationLink(destination: EventsView()) {
+                        //NavigationLink(destination: EventsView()) {
+                            Text("Events")
+                                .bold()
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }
+                        Spacer()
+                        Button("Other") {
+                            print("delete document")
+                        }
+                        Spacer()
+                        Button("Friends") {
+                            print("delete document")
+                        }
+                        Spacer()
+                        Button("Reservations") {
+                            print("delete document")
+                        }
+                    }
+                }
+//                .padding(.bottom)
                 .background(Color.blue.opacity(0.5))
-                .frame(height: 80) // Adjust the height of the bottom bar
+                .frame(height: 100) // Adjust the height of the bottom bar
             }
             .ignoresSafeArea()
         }

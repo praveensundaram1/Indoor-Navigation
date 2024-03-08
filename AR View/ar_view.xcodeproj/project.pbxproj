@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		126AF2952B9A6D9000ECF01F /* AllEventsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */; };
+		126AF2972B9A740800ECF01F /* PublicEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126AF2962B9A740800ECF01F /* PublicEvents.swift */; };
+		126AF2992B9AB8D000ECF01F /* ClubEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126AF2982B9AB8D000ECF01F /* ClubEvents.swift */; };
 		76E964CB2B18D69000A9A09A /* building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E964C72B18D69000A9A09A /* building.swift */; };
 		76E964CC2B18D69000A9A09A /* graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E964C82B18D69000A9A09A /* graph.swift */; };
 		76E964CD2B18D69000A9A09A /* backend_main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E964C92B18D69000A9A09A /* backend_main.swift */; };
@@ -24,7 +27,6 @@
 		CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */; };
 		CAE12A4B2AE9BE330013660E /* Arrow.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CAE12A4A2AE9BE330013660E /* Arrow.usdz */; };
 		F00C1A9A2B93A64000684DBA /* Room.scn in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A992B93A64000684DBA /* Room.scn */; };
-		F00C1A9C2B93A8DF00684DBA /* CapturedRoom.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A9B2B93A8DF00684DBA /* CapturedRoom.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsPage.swift; sourceTree = "<group>"; };
+		126AF2962B9A740800ECF01F /* PublicEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEvents.swift; sourceTree = "<group>"; };
+		126AF2982B9AB8D000ECF01F /* ClubEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubEvents.swift; sourceTree = "<group>"; };
 		76E964C72B18D69000A9A09A /* building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = building.swift; sourceTree = "<group>"; };
 		76E964C82B18D69000A9A09A /* graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graph.swift; sourceTree = "<group>"; };
 		76E964C92B18D69000A9A09A /* backend_main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backend_main.swift; sourceTree = "<group>"; };
@@ -65,7 +70,6 @@
 		CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARNavView.swift; sourceTree = "<group>"; };
 		CAE12A4A2AE9BE330013660E /* Arrow.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Arrow.usdz; path = ar_view/Arrow.usdz; sourceTree = SOURCE_ROOT; };
 		F00C1A992B93A64000684DBA /* Room.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Room.scn; sourceTree = "<group>"; };
-		F00C1A9B2B93A8DF00684DBA /* CapturedRoom.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = CapturedRoom.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				CAE12A4A2AE9BE330013660E /* Arrow.usdz */,
-				F00C1A9B2B93A8DF00684DBA /* CapturedRoom.usdz */,
 				CA5F84552AE87A5A0074301B /* Feature Targets */,
 				CA5F842B2AE87A010074301B /* ar_viewApp.swift */,
 				CA5F842F2AE87A030074301B /* Assets.xcassets */,
@@ -168,8 +171,11 @@
 			children = (
 				76E964C62B18D67500A9A09A /* backend */,
 				CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */,
+				126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */,
+				126AF2982B9AB8D000ECF01F /* ClubEvents.swift */,
 				CA5F84562AE87A7D0074301B /* CustomARView.swift */,
 				CA5F842D2AE87A010074301B /* ContentView.swift */,
+				126AF2962B9A740800ECF01F /* PublicEvents.swift */,
 				CA5F84582AE87AFB0074301B /* CustomARViewRep.swift */,
 				B9677C182B21DB2A00EFC218 /* QRCodeScannerView.swift */,
 			);
@@ -281,7 +287,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA5F84332AE87A030074301B /* Preview Assets.xcassets in Resources */,
-				F00C1A9C2B93A8DF00684DBA /* CapturedRoom.usdz in Resources */,
 				F00C1A9A2B93A64000684DBA /* Room.scn in Resources */,
 				CA5F84302AE87A030074301B /* Assets.xcassets in Resources */,
 				CAE12A4B2AE9BE330013660E /* Arrow.usdz in Resources */,
@@ -310,15 +315,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E964CE2B18D69000A9A09A /* graphElements.swift in Sources */,
+				126AF2972B9A740800ECF01F /* PublicEvents.swift in Sources */,
 				CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */,
 				76E964CC2B18D69000A9A09A /* graph.swift in Sources */,
 				CA5F84592AE87AFB0074301B /* CustomARViewRep.swift in Sources */,
 				76E964CD2B18D69000A9A09A /* backend_main.swift in Sources */,
 				CA5F842E2AE87A010074301B /* ContentView.swift in Sources */,
 				CA5F84572AE87A7D0074301B /* CustomARView.swift in Sources */,
+				126AF2992B9AB8D000ECF01F /* ClubEvents.swift in Sources */,
 				76E964CB2B18D69000A9A09A /* building.swift in Sources */,
 				CA5F842C2AE87A010074301B /* ar_viewApp.swift in Sources */,
 				B9677C192B21DB2A00EFC218 /* QRCodeScannerView.swift in Sources */,
+				126AF2952B9A6D9000ECF01F /* AllEventsPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +491,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ar_view/Preview Content\"";
-				DEVELOPMENT_TEAM = T65FDJN443;
+				DEVELOPMENT_TEAM = 6UX42FB23A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ar-view-Info.plist";
@@ -517,7 +525,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ar_view/Preview Content\"";
-				DEVELOPMENT_TEAM = T65FDJN443;
+				DEVELOPMENT_TEAM = 6UX42FB23A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ar-view-Info.plist";
