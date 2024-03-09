@@ -25,6 +25,8 @@
 		CAE12A4B2AE9BE330013660E /* Arrow.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CAE12A4A2AE9BE330013660E /* Arrow.usdz */; };
 		F00C1A9A2B93A64000684DBA /* Room.scn in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A992B93A64000684DBA /* Room.scn */; };
 		F00C1A9C2B93A8DF00684DBA /* CapturedRoom.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A9B2B93A8DF00684DBA /* CapturedRoom.usdz */; };
+		F07B13272B9C090C0051763C /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B13262B9C090C0051763C /* CalendarVC.swift */; };
+		F07B132B2B9C0B110051763C /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = F07B132A2B9C0B110051763C /* CalendarKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,7 @@
 		CAE12A4A2AE9BE330013660E /* Arrow.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Arrow.usdz; path = ar_view/Arrow.usdz; sourceTree = SOURCE_ROOT; };
 		F00C1A992B93A64000684DBA /* Room.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Room.scn; sourceTree = "<group>"; };
 		F00C1A9B2B93A8DF00684DBA /* CapturedRoom.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = CapturedRoom.usdz; sourceTree = "<group>"; };
+		F07B13262B9C090C0051763C /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07B132B2B9C0B110051763C /* CalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +116,7 @@
 				CA5F843B2AE87A030074301B /* ar_viewTests */,
 				CA5F84452AE87A030074301B /* ar_viewUITests */,
 				CA5F84292AE87A010074301B /* Products */,
+				F07B13292B9C0B110051763C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,8 +177,16 @@
 				CA5F842D2AE87A010074301B /* ContentView.swift */,
 				CA5F84582AE87AFB0074301B /* CustomARViewRep.swift */,
 				B9677C182B21DB2A00EFC218 /* QRCodeScannerView.swift */,
+				F07B13262B9C090C0051763C /* CalendarVC.swift */,
 			);
 			path = "Feature Targets";
+			sourceTree = "<group>";
+		};
+		F07B13292B9C0B110051763C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +205,9 @@
 			dependencies = (
 			);
 			name = ar_view;
+			packageProductDependencies = (
+				F07B132A2B9C0B110051763C /* CalendarKit */,
+			);
 			productName = ar_view;
 			productReference = CA5F84282AE87A010074301B /* ar_view.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +280,9 @@
 				Base,
 			);
 			mainGroup = CA5F841F2AE87A010074301B;
+			packageReferences = (
+				F07B13282B9C0A150051763C /* XCRemoteSwiftPackageReference "CalendarKit" */,
+			);
 			productRefGroup = CA5F84292AE87A010074301B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -311,6 +330,7 @@
 			files = (
 				76E964CE2B18D69000A9A09A /* graphElements.swift in Sources */,
 				CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */,
+				F07B13272B9C090C0051763C /* CalendarVC.swift in Sources */,
 				76E964CC2B18D69000A9A09A /* graph.swift in Sources */,
 				CA5F84592AE87AFB0074301B /* CustomARViewRep.swift in Sources */,
 				76E964CD2B18D69000A9A09A /* backend_main.swift in Sources */,
@@ -488,6 +508,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ar-view-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "First Direction";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Add your events from personal calendar";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to show AR View";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -522,6 +543,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ar-view-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "First Direction";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Add your events from personal calendar";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to show AR View";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -658,6 +680,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F07B13282B9C0A150051763C /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F07B132A2B9C0B110051763C /* CalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F07B13282B9C0A150051763C /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			productName = CalendarKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA5F84202AE87A010074301B /* Project object */;
 }
