@@ -42,6 +42,15 @@ struct EventList {
         let event4 = Event(title: "Class Discussion", description: "Weekly class discussion!", date: Date(), time: "12:00 PM", location: "Computer Sciences 133")
         let event5 = Event(title: "Exam", description: "Midterm exam!", date: Date(), time: "10:00 AM", location: "Computer Sciences 182")
         let event6 = Event(title: "Conference", description: "Learn about the latest technologies!", date: Date(), time: "10:00 AM", location: "Computer Sciences Conference Center")
+        let event7 = Event(title: "Seminar", description: "Guest speaker discussing AI ethics.", date: Date(), time: "2:00 PM", location: "Computer Sciences 206")
+        let event8 = Event(title: "Hackathon Kickoff", description: "Start of the annual coding competition!", date: Date(), time: "5:00 PM", location: "Computer Sciences 225")
+        let event9 = Event(title: "Research Presentation", description: "Graduate student presenting thesis findings.", date: Date(), time: "4:00 PM", location: "Computer Sciences 312")
+        let event10 = Event(title: "Networking Workshop", description: "Tips and tricks for effective networking.", date: Date(), time: "3:30 PM", location: "Computer Sciences 401")
+        let event11 = Event(title: "Panel Discussion", description: "Experts debating the future of cybersecurity.", date: Date(), time: "1:00 PM", location: "Computer Sciences 512")
+        let event12 = Event(title: "Job Fair", description: "Opportunities to meet with tech companies!", date: Date(), time: "10:00 AM", location: "Computer Sciences Lobby")
+        let event13 = Event(title: "Study Group", description: "Collaborative study session for upcoming exam.", date: Date(), time: "7:00 PM", location: "Computer Sciences 202")
+        let event14 = Event(title: "Workshop", description: "Introduction to machine learning concepts.", date: Date(), time: "11:00 AM", location: "Computer Sciences 318")
+        let event15 = Event(title: "Code Review", description: "Peer review session for coding projects.", date: Date(), time: "6:30 PM", location: "Computer Sciences 433")
         
         // Add mock events to the list
         addEvent(event1)
@@ -50,6 +59,15 @@ struct EventList {
         addEvent(event4)
         addEvent(event5)
         addEvent(event6)
+        addEvent(event7)
+        addEvent(event8)
+        addEvent(event9)
+        addEvent(event10)
+        addEvent(event11)
+        addEvent(event12)
+        addEvent(event13)
+        addEvent(event14)
+        addEvent(event15)
         
         // Add more mock events as needed...
     }

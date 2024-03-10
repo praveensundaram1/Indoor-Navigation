@@ -78,6 +78,8 @@ struct ContentView: View {
                             .padding()
                             .background(Color.blue)
                             .cornerRadius(10)
+                            /*
+                            // testing out usage of EventList
                             .onTapGesture {
                                 // Call printEvents function here
                                 EventList.addMockEvents()
@@ -88,6 +90,7 @@ struct ContentView: View {
                                     print("The title of the event at index \(index) is \(event.title)")
                                 }
                             }
+                            */
                     }
                     Button(action: {
                         self.isShowingScanner = true
