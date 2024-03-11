@@ -22,7 +22,7 @@ struct ARViewWithBars: View {
             
             
             
-//            CustomARViewRep(isFlashing: $isFlashing, direction: $direction, roomNum: $roomNum)
+            CustomARViewRep(isFlashing: $isFlashing, direction: $direction, roomNum: $roomNum)
             
 
             VStack {

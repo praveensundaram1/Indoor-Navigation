@@ -23,7 +23,7 @@ class CalendarVC: DayViewController {
     
     func requestAccessToCalender() {
         print("hey")
-        eventStore.requestFullAccessToEvents{ (granted, error) in
+        eventStore.requestFullAccessToEvents { (granted, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     print("Error requesting calendar access: \(error.localizedDescription)")
