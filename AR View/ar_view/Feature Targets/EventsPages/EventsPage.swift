@@ -29,7 +29,7 @@ struct EventsView: View {
                 .edgesIgnoringSafeArea(.all)
                 // Column displaying team name "First Direction", logo and direction prompt
                 VStack (/*spacing: 2*/) {
-                    Text("All Events")
+                    Text("Events")
                         .bold()
                         .font(.system(size: 32, weight: .medium, design: .default))
                         .foregroundColor(.black)
@@ -44,7 +44,7 @@ struct EventsView: View {
                             Button(action: {
                                 self.isClicked = true
                             }) {
-                                Text("Calendar")
+                                Text("My Events")
                                     .bold()
                                     .font(.system(size: 20))
                                     .foregroundColor(.white)
@@ -58,7 +58,7 @@ struct EventsView: View {
 //                                    .frame(width: 200, height: 200)
                             } .buttonStyle(GreenCircleButtonStyle())
                             NavigationLink(destination: CalendarView()) {
-                                Text("My Events")
+                                Text("Calendar")
                                     .bold()
                                     .font(.system(size: 20))
                                     .foregroundColor(.white)
