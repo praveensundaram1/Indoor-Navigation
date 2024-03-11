@@ -12,18 +12,34 @@ import EventKit
 
 
 
+
 class CalendarVC: DayViewController {
     private let eventStore = EKEventStore()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         requestAccessToCalender()
         title = "Your Calendar"
     }
+    
     func requestAccessToCalender() {
-        eventStore.requestAccess(to: .event) {success, error in
+        print("hey")
+        eventStore.requestFullAccessToEvents{ (granted, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error requesting calendar access: \(error.localizedDescription)")
+                    return
+                }
+                
+                if granted {
+                        super.viewDidLoad()
+                        print("Access granted, proceed to access the calendar")
+                } else {
+                    print("Handle the case where permission was denied")
+                }
+            }
         }
     }
+    
     
     override func eventsForDate(_ date: Date)  -> [any EventDescriptor] {
         let startDate = date

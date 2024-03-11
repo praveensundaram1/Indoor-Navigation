@@ -203,10 +203,10 @@ func getRoomScanInfo() {
     let testRoom = Room(doors: roomDoors, name: "testroom", obstacles: roomObstacles)
     print(testRoom)
     //init start coor as table 0 for example
-    let startCoor = Room.Coordinate(x: -0.7596692, y: -0.97389185, z: -0.028565079)
-    //init end coor as door 3 for example
-    let endCoor = Room.Coordinate(x: 4.344256, y: -1.6196804, z: 0.09232491)
-    
+//    let startCoor = Room.Coordinate(x: -0.7596692, y: -0.97389185, z: -0.028565079)
+//    //init end coor as door 3 for example
+//    let endCoor = Room.Coordinate(x: 4.344256, y: -1.6196804, z: 0.09232491)
+//    
     //Some issue still with shortest node path
 //    let testSteps = testRoom.shortestNodePath(startCoord: startCoor, endCoord: endCoor)
 //    let consolidateTestSteps = consolidateSteps(steps: testSteps)
