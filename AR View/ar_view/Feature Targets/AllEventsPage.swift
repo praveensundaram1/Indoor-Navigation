@@ -19,6 +19,10 @@ import SwiftUI
 //}
 
 struct AllEventsView: View {
+    init() {
+            // Call addMockEvents() here to set up your mock events
+            EventList.addMockEvents()
+        }
     var body: some View {
         NavigationStack{
             ZStack{
@@ -31,9 +35,27 @@ struct AllEventsView: View {
                         .bold()
                         .font(.system(size: 32, weight: .medium, design: .default))
                         .foregroundColor(.black)
-//                        .padding(.trailing, 10)
-//                        .padding(.top, 5)
-                        .position(x:100, y:50)
+                    //  .padding(.trailing, 10)
+                    //  .padding(.top, 5)
+                    //    .position(x:100, y:50)
+                    Spacer()
+                    
+                    
+                    ScrollView {
+                        VStack(spacing: 10) { // Adjust spacing as needed
+                            ForEach(0..<EventList.getEventListSize()) { index in
+                                if let event = EventList.getEvent(at: index) {
+                                    Text(event.title)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .bold()
+//                                        .background(Color.white)
+//                                        .cornerRadius(10)
+                                }
+                            }
+                        }
+                    }
+                    // .padding()
                         //.frame(width: 100, height: 400, alignment: .topLeading)
                         //.padding(.top, 5)
                     // NavigationLink to transition to ARViewWithBars when "Start AR View" is tapped.
