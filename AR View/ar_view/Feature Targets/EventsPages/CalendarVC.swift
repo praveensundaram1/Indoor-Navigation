@@ -22,7 +22,6 @@ class CalendarVC: DayViewController {
     }
     
     func requestAccessToCalender() {
-        print("hey")
         eventStore.requestFullAccessToEvents { (granted, error) in
             DispatchQueue.main.async {
                 if let error = error {
