@@ -34,6 +34,10 @@ struct EventList {
         events.remove(at: index)
     }
     
+    static func getEventListSize() -> Int {
+        return EventList.events.count
+    }
+    
     // Function to add mock events to the list
     static func addMockEvents() {
         let event1 = CustomEvent(title: "Birthday Party", description: "Join us for a fun celebration!", date: Date(), time: "3:00 PM", location: "Computer Sciences Conference Center")
