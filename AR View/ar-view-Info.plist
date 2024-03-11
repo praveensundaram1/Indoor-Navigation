@@ -15,5 +15,7 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>Add your events from personal calendar</string>
 </dict>
 </plist>
