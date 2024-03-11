@@ -20,6 +20,7 @@ import SwiftUI
 
 
 
+
 struct EventsView: View {
     @State private var isClicked = false
 
@@ -30,114 +31,53 @@ struct EventsView: View {
                                startPoint: .topLeading, endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
 
-                VStack(spacing: 2) {
+                VStack(spacing: 30) {
                     Text("Events")
                         .bold()
                         .font(.system(size: 32, weight: .medium, design: .default))
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 16)
-                        .padding(.bottom, 5)
-
-                    Grid(horizontalSpacing: 30, verticalSpacing: 30) {
+                    Spacer()
+                    Grid(horizontalSpacing: 30, verticalSpacing: 100) {
                         GridRow {
                             Button(action: {
                                 self.isClicked = true
                             }) {
-                                Text("My Events")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.green)
-                                    .cornerRadius(10)
+                                textLabelStylize(text: "My Events", color: .green)
                             }
-                            .buttonStyle(GreenCircleButtonStyle())
+                            .buttonStyle(CircleButtonStyle())
 
                             NavigationLink(destination: CalendarView()) {
-                                Text("Calendar")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.green)
-                                    .cornerRadius(10)
+                                textLabelStylize(text: "My Calendar", color: .green)
                             }
-                            .buttonStyle(GreenCircleButtonStyle())
+                            .buttonStyle(CircleButtonStyle())
                         }
                         GridRow {
                             NavigationLink(destination: AllEventsView()) {
-                                Text("All Events")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
+                                textLabelStylize(text: "All Events", color: .blue)
                             }
-                            .buttonStyle(BlueCircleButtonStyle())
+                            .buttonStyle(CircleButtonStyle())
 
                             Button(action: {
                                 self.isClicked = true
                             }) {
-                                Text("Office Hours")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
+                                textLabelStylize(text: "Office Hours", color: .blue)
                             }
-                            .buttonStyle(BlueCircleButtonStyle())
+                            .buttonStyle(CircleButtonStyle())
                         }
                         GridRow {
                             NavigationLink(destination: PublicEventsView()) {
-                                Text("Public Events")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
+                                textLabelStylize(text: "Public Events", color: .blue)
                             }
-                            .buttonStyle(BlueCircleButtonStyle())
+                            .buttonStyle(CircleButtonStyle())
 
                             NavigationLink(destination: ClubEventsView()) {
-                                Text("Club Events")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
+                                textLabelStylize(text: "Club Events", color: .blue)
                             }
-                            .buttonStyle(BlueCircleButtonStyle())
+                            .buttonStyle(CircleButtonStyle())
                         }
 
                         Spacer()
-                    }
-                    .toolbar {
-                        ToolbarItemGroup(placement: .bottomBar) {
-                            NavigationLink(destination: EventsView()) {
-                                Text("All Events")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
-                            }
-
-                            NavigationLink(destination: CalendarView()) {
-                                Text("Calendar")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
-                            }
-                        }
                     }
                     .frame(maxHeight: .infinity)
                 }
@@ -146,33 +86,41 @@ struct EventsView: View {
     }
 }
 
-struct BlueCircleButtonStyle: ButtonStyle {
+func textLabelStylize(text: String, color: Color) -> some View{
+    let textObj: some View = Text(text)
+        .bold()
+        .font(.system(size: 20))
+        .foregroundColor(color)
+//        .backgroundColor(.green)
+//        .padding()
+//        .cornerRadius(10)
+    
+    return textObj
+}
+
+
+
+struct CircleButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label.padding().modifier(MakeSquareBounds()).background(Circle().fill(Color.blue))
+        configuration.label
+            .font(.system(size: 16)) // Adjusted font size
+            .foregroundColor(.white)
+            .padding(20) // Adjust padding to ensure the text fits within the circle
+            .background(
+                Circle()
+                    .fill(Color.offWhite)
+                    .frame(width: 150, height: 150) // Explicitly size the circle
+                    .shadow(color: Color.black.opacity(configuration.isPressed ? 0.2 : 0.7), radius: 10, x: configuration.isPressed ? -5 : 10, y: configuration.isPressed ? -5 : 10)
+                    .shadow(color: Color.white.opacity(configuration.isPressed ? 0.7 : 0.2), radius: 10, x: configuration.isPressed ? 10 : -5, y: configuration.isPressed ? 10 : -5)
+                
+            )
     }
 }
-
-struct GreenCircleButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label.padding().modifier(MakeSquareBounds()).background(Circle().fill(Color.green))
-    }
+extension Color {
+    static let offWhite = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
 }
 
 
 
 
-struct MakeSquareBounds: ViewModifier {
 
-    @State var size: CGFloat = 3000
-    func body(content: Content) -> some View {
-        let c = ZStack {
-            content.alignmentGuide(HorizontalAlignment.center) { (vd) -> CGFloat in
-                DispatchQueue.main.async {
-                    self.size = max(vd.height, vd.width)
-                }
-                return vd[HorizontalAlignment.center]
-            }
-        }
-        return c.frame(width: size, height: size)
-    }
-}
