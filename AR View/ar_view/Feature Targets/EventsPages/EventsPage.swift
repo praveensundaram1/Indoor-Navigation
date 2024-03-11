@@ -18,28 +18,28 @@ import SwiftUI
 //    ])
 //}
 
+
+
 struct EventsView: View {
     @State private var isClicked = false
-    
+
     var body: some View {
-        NavigationStack{
-            ZStack{
+        NavigationStack {
+            ZStack {
                 LinearGradient(gradient: Gradient(colors: [.white, .blue]),
                                startPoint: .topLeading, endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
-                // Column displaying team name "First Direction", logo and direction prompt
-                VStack (/*spacing: 2*/) {
+                    .edgesIgnoringSafeArea(.all)
+
+                VStack(spacing: 2) {
                     Text("Events")
                         .bold()
                         .font(.system(size: 32, weight: .medium, design: .default))
                         .foregroundColor(.black)
-//                        .padding(.trailing, 10)
-//                        .padding(.top, 5)
-                        .position(x:100, y:50)
-                        //.frame(width: 100, height: 400, alignment: .topLeading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 16)
                         .padding(.bottom, 5)
-                    // NavigationLink to transition to ARViewWithBars when "Start AR View" is tapped.
-                    Grid(horizontalSpacing: 30, verticalSpacing: 3){
+
+                    Grid(horizontalSpacing: 30, verticalSpacing: 30) {
                         GridRow {
                             Button(action: {
                                 self.isClicked = true
@@ -51,12 +51,9 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.green)
                                     .cornerRadius(10)
-//                                    .fill(Color.offWhite)
-//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-//                                    .clipShape(Circle())
-//                                    .frame(width: 200, height: 200)
-                            } .buttonStyle(GreenCircleButtonStyle())
+                            }
+                            .buttonStyle(GreenCircleButtonStyle())
+
                             NavigationLink(destination: CalendarView()) {
                                 Text("Calendar")
                                     .bold()
@@ -65,7 +62,8 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.green)
                                     .cornerRadius(10)
-                            } .buttonStyle(GreenCircleButtonStyle())
+                            }
+                            .buttonStyle(GreenCircleButtonStyle())
                         }
                         GridRow {
                             NavigationLink(destination: AllEventsView()) {
@@ -76,12 +74,9 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.blue)
                                     .cornerRadius(10)
-//                                    .fill(Color.offWhite)
-//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-//                                    .clipShape(Circle())
-//                                    .frame(width: 200, height: 200)
-                            } .buttonStyle(BlueCircleButtonStyle())
+                            }
+                            .buttonStyle(BlueCircleButtonStyle())
+
                             Button(action: {
                                 self.isClicked = true
                             }) {
@@ -92,12 +87,8 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.blue)
                                     .cornerRadius(10)
-//                                    .fill(Color.offWhite)
-//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-//                                    .clipShape(Circle())
-//                                    .frame(width: 200, height: 200)
-                            } .buttonStyle(BlueCircleButtonStyle())
+                            }
+                            .buttonStyle(BlueCircleButtonStyle())
                         }
                         GridRow {
                             NavigationLink(destination: PublicEventsView()) {
@@ -108,12 +99,9 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.blue)
                                     .cornerRadius(10)
-//                                    .fill(Color.offWhite)
-//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-//                                    .clipShape(Circle())
-//                                    .frame(width: 200, height: 200)
-                            } .buttonStyle(BlueCircleButtonStyle())
+                            }
+                            .buttonStyle(BlueCircleButtonStyle())
+
                             NavigationLink(destination: ClubEventsView()) {
                                 Text("Club Events")
                                     .bold()
@@ -122,52 +110,60 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.blue)
                                     .cornerRadius(10)
-//                                    .fill(Color.offWhite)
-//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-//                                    .clipShape(Circle())
-//                                    .frame(width: 200, height: 200)
-                            } .buttonStyle(BlueCircleButtonStyle())
-                            
+                            }
+                            .buttonStyle(BlueCircleButtonStyle())
                         }
-                        
-                        //                    NavigationLink(destination: OHEventsView()) {
-                        //                        Text("Public Events")
-                        //                            .bold()
-                        //                            .font(.system(size: 20))
-                        //                            .foregroundColor(.white)
-                        //                            .padding()
-                        //                            .background(Color.blue)
-                        //                            .cornerRadius(10)
-                        //                    }
+
                         Spacer()
                     }
+                    .toolbar {
+                        ToolbarItemGroup(placement: .bottomBar) {
+                            NavigationLink(destination: EventsView()) {
+                                Text("All Events")
+                                    .bold()
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(10)
+                            }
 
-                    //.background(Color.white.opacity(0.5))
-                    .frame(height: 150) // Adjust the height of the bottom bar
+                            NavigationLink(destination: CalendarView()) {
+                                Text("Calendar")
+                                    .bold()
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(10)
+                            }
+                        }
+                    }
+                    .frame(maxHeight: .infinity)
                 }
             }
         }
     }
 }
 
-
 struct BlueCircleButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label.padding().modifier(MakeSquareBounds()).background(Circle().fill(Color.blue))
-
     }
 }
+
 struct GreenCircleButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label.padding().modifier(MakeSquareBounds()).background(Circle().fill(Color.green))
-
     }
 }
 
+
+
+
 struct MakeSquareBounds: ViewModifier {
 
-    @State var size: CGFloat = 1000
+    @State var size: CGFloat = 3000
     func body(content: Content) -> some View {
         let c = ZStack {
             content.alignmentGuide(HorizontalAlignment.center) { (vd) -> CGFloat in
