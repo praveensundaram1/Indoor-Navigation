@@ -153,6 +153,8 @@ func consolidateSteps(steps: [[Double]]) -> [[Double]] {
 ////        sceneView.autoenablesDefaultLighting = true
 ////        sceneView.allowsCameraControl = true
 //}
+
+
 extension SCNVector3 : CustomStringConvertible {
     public var description: String {
         return "[\(self.x), \(self.y), \(self.z)]"

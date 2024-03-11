@@ -29,6 +29,8 @@
 		CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */; };
 		CAE12A4B2AE9BE330013660E /* Arrow.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CAE12A4A2AE9BE330013660E /* Arrow.usdz */; };
 		F00C1A9A2B93A64000684DBA /* Room.scn in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A992B93A64000684DBA /* Room.scn */; };
+		F07B13272B9C090C0051763C /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B13262B9C090C0051763C /* CalendarVC.swift */; };
+		F07B132B2B9C0B110051763C /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = F07B132A2B9C0B110051763C /* CalendarKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +52,9 @@
 
 /* Begin PBXFileReference section */
 		123B95172B9F5EE600AB5943 /* EventsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsPage.swift; sourceTree = "<group>"; };
-		126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsPage.swift; sourceTree = "<group>"; };
-		126AF2962B9A740800ECF01F /* PublicEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEvents.swift; sourceTree = "<group>"; };
-		126AF2982B9AB8D000ECF01F /* ClubEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubEvents.swift; sourceTree = "<group>"; };
+		126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllEventsPage.swift; path = ../AllEventsPage.swift; sourceTree = "<group>"; };
+		126AF2962B9A740800ECF01F /* PublicEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublicEvents.swift; path = ../PublicEvents.swift; sourceTree = "<group>"; };
+		126AF2982B9AB8D000ECF01F /* ClubEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClubEvents.swift; path = ../ClubEvents.swift; sourceTree = "<group>"; };
 		76E964C72B18D69000A9A09A /* building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = building.swift; sourceTree = "<group>"; };
 		76E964C82B18D69000A9A09A /* graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graph.swift; sourceTree = "<group>"; };
 		76E964C92B18D69000A9A09A /* backend_main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backend_main.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARNavView.swift; sourceTree = "<group>"; };
 		CAE12A4A2AE9BE330013660E /* Arrow.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Arrow.usdz; path = ar_view/Arrow.usdz; sourceTree = SOURCE_ROOT; };
 		F00C1A992B93A64000684DBA /* Room.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Room.scn; sourceTree = "<group>"; };
+		F07B13262B9C090C0051763C /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07B132B2B9C0B110051763C /* CalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,9 +109,11 @@
 			isa = PBXGroup;
 			children = (
 				126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */,
-				123B95172B9F5EE600AB5943 /* EventsPage.swift */,
 				126AF2982B9AB8D000ECF01F /* ClubEvents.swift */,
+				86AF5C432B9AD73700D128D9 /* EventList.swift */,
 				126AF2962B9A740800ECF01F /* PublicEvents.swift */,
+				123B95172B9F5EE600AB5943 /* EventsPage.swift */,
+				F07B13262B9C090C0051763C /* CalendarVC.swift */,
 			);
 			path = EventsPages;
 			sourceTree = "<group>";
@@ -131,6 +137,7 @@
 				CA5F843B2AE87A030074301B /* ar_viewTests */,
 				CA5F84452AE87A030074301B /* ar_viewUITests */,
 				CA5F84292AE87A010074301B /* Products */,
+				F07B13292B9C0B110051763C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,17 +193,20 @@
 			children = (
 				76E964C62B18D67500A9A09A /* backend */,
 				CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */,
-				126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */,
-				126AF2982B9AB8D000ECF01F /* ClubEvents.swift */,
 				CA5F84562AE87A7D0074301B /* CustomARView.swift */,
-				86AF5C432B9AD73700D128D9 /* EventList.swift */,
 				CA5F842D2AE87A010074301B /* ContentView.swift */,
-				126AF2962B9A740800ECF01F /* PublicEvents.swift */,
 				CA5F84582AE87AFB0074301B /* CustomARViewRep.swift */,
 				B9677C182B21DB2A00EFC218 /* QRCodeScannerView.swift */,
 				123B95162B9F5E8900AB5943 /* EventsPages */,
 			);
 			path = "Feature Targets";
+			sourceTree = "<group>";
+		};
+		F07B13292B9C0B110051763C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +225,9 @@
 			dependencies = (
 			);
 			name = ar_view;
+			packageProductDependencies = (
+				F07B132A2B9C0B110051763C /* CalendarKit */,
+			);
 			productName = ar_view;
 			productReference = CA5F84282AE87A010074301B /* ar_view.app */;
 			productType = "com.apple.product-type.application";
@@ -287,6 +300,9 @@
 				Base,
 			);
 			mainGroup = CA5F841F2AE87A010074301B;
+			packageReferences = (
+				F07B13282B9C0A150051763C /* XCRemoteSwiftPackageReference "CalendarKit" */,
+			);
 			productRefGroup = CA5F84292AE87A010074301B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -335,6 +351,7 @@
 				126AF2972B9A740800ECF01F /* PublicEvents.swift in Sources */,
 				CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */,
 				86AF5C442B9AD73700D128D9 /* EventList.swift in Sources */,
+				F07B13272B9C090C0051763C /* CalendarVC.swift in Sources */,
 				76E964CC2B18D69000A9A09A /* graph.swift in Sources */,
 				CA5F84592AE87AFB0074301B /* CustomARViewRep.swift in Sources */,
 				76E964CD2B18D69000A9A09A /* backend_main.swift in Sources */,
@@ -515,6 +532,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ar-view-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "First Direction";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Add your events from personal calendar";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to show AR View";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -549,6 +567,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ar-view-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "First Direction";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Add your events from personal calendar";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to show AR View";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -685,6 +704,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F07B13282B9C0A150051763C /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F07B132A2B9C0B110051763C /* CalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F07B13282B9C0A150051763C /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			productName = CalendarKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA5F84202AE87A010074301B /* Project object */;
 }

@@ -49,7 +49,12 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.blue)
                                     .cornerRadius(10)
-                            }
+//                                    .fill(Color.offWhite)
+//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+//                                    .clipShape(Circle())
+//                                    .frame(width: 200, height: 200)
+                            } .buttonStyle(BlueCircleButtonStyle())
                             Button(action: {
                                 self.isClicked = true
                             }) {
@@ -60,7 +65,12 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.blue)
                                     .cornerRadius(10)
-                            }
+//                                    .fill(Color.offWhite)
+//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+//                                    .clipShape(Circle())
+//                                    .frame(width: 200, height: 200)
+                            } .buttonStyle(BlueCircleButtonStyle())
                         }
                         GridRow {
                             NavigationLink(destination: PublicEventsView()) {
@@ -71,7 +81,12 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.blue)
                                     .cornerRadius(10)
-                            }
+//                                    .fill(Color.offWhite)
+//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+//                                    .clipShape(Circle())
+//                                    .frame(width: 200, height: 200)
+                            } .buttonStyle(BlueCircleButtonStyle())
                             NavigationLink(destination: ClubEventsView()) {
                                 Text("Club Events")
                                     .bold()
@@ -80,7 +95,12 @@ struct EventsView: View {
                                     .padding()
                                     .background(Color.blue)
                                     .cornerRadius(10)
-                            }
+//                                    .fill(Color.offWhite)
+//                                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+//                                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+//                                    .clipShape(Circle())
+//                                    .frame(width: 200, height: 200)
+                            } .buttonStyle(BlueCircleButtonStyle())
                         }
                         
                         //                    NavigationLink(destination: OHEventsView()) {
@@ -92,6 +112,7 @@ struct EventsView: View {
                         //                            .background(Color.blue)
                         //                            .cornerRadius(10)
                         //                    }
+                        Spacer()
                     }
                     .toolbar {
                         ToolbarItemGroup(placement: .bottomBar) {
@@ -105,16 +126,16 @@ struct EventsView: View {
                                     .background(Color.blue)
                                     .cornerRadius(10)
                             }
-//                            NavigationLink(destination: EventsView()) {
-//                                //NavigationLink(destination: EventsView()) {
-//                                Text("My Events")
-//                                    .bold()
-//                                    .font(.system(size: 20))
-//                                    .foregroundColor(.white)
-//                                    .padding()
-//                                    .background(Color.blue)
-//                                    .cornerRadius(10)
-//                            }
+                            NavigationLink(destination: CalendarView()) {
+                                //NavigationLink(destination: EventsView()) {
+                                Text("Calendar")
+                                    .bold()
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(10)
+                            }
 //                            NavigationLink(destination: EventsView()) {
 //                                //NavigationLink(destination: EventsView()) {
 //                                Text("Calendar")
@@ -127,10 +148,34 @@ struct EventsView: View {
 //                            }
                         }
                     }
-                    .background(Color.blue.opacity(0.5))
+                    //.background(Color.white.opacity(0.5))
                     .frame(height: 150) // Adjust the height of the bottom bar
                 }
             }
         }
+    }
+}
+
+
+struct BlueCircleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label.padding().modifier(MakeSquareBounds()).background(Circle().fill(Color.blue))
+
+    }
+}
+
+struct MakeSquareBounds: ViewModifier {
+
+    @State var size: CGFloat = 1000
+    func body(content: Content) -> some View {
+        let c = ZStack {
+            content.alignmentGuide(HorizontalAlignment.center) { (vd) -> CGFloat in
+                DispatchQueue.main.async {
+                    self.size = max(vd.height, vd.width)
+                }
+                return vd[HorizontalAlignment.center]
+            }
+        }
+        return c.frame(width: size, height: size)
     }
 }

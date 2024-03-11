@@ -18,7 +18,7 @@ import SwiftUI
 //    ])
 //}
 
-struct EventsView: View {
+struct AllEventsView: View {
     var body: some View {
         NavigationStack{
             ZStack{
@@ -37,27 +37,27 @@ struct EventsView: View {
                         //.frame(width: 100, height: 400, alignment: .topLeading)
                         //.padding(.top, 5)
                     // NavigationLink to transition to ARViewWithBars when "Start AR View" is tapped.
-                    Grid(horizontalSpacing: 30, verticalSpacing: 30){
-                        GridRow {
-                            NavigationLink(destination: PublicEventsView()) {
-                                Text("Public Events")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
-                            }
-                            NavigationLink(destination: ClubEventsView()) {
-                                Text("Club Events")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
-                            }
-                        }
+//                    Grid(horizontalSpacing: 30, verticalSpacing: 30){
+//                        GridRow {
+//                            NavigationLink(destination: PublicEventsView()) {
+//                                Text("Public Events")
+//                                    .bold()
+//                                    .font(.system(size: 20))
+//                                    .foregroundColor(.white)
+//                                    .padding()
+//                                    .background(Color.blue)
+//                                    .cornerRadius(10)
+//                            }
+//                            NavigationLink(destination: ClubEventsView()) {
+//                                Text("Club Events")
+//                                    .bold()
+//                                    .font(.system(size: 20))
+//                                    .foregroundColor(.white)
+//                                    .padding()
+//                                    .background(Color.blue)
+//                                    .cornerRadius(10)
+//                            }
+//                        }
                         
                         //                    NavigationLink(destination: OHEventsView()) {
                         //                        Text("Public Events")
@@ -68,7 +68,7 @@ struct EventsView: View {
                         //                            .background(Color.blue)
                         //                            .cornerRadius(10)
                         //                    }
-                    }
+//                    }
                     
                 }
             }
