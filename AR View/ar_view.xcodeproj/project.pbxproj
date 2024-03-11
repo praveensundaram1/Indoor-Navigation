@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122974382BBCB7A4004DACCC /* Hueristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122974372BBCB7A4004DACCC /* Hueristic.swift */; };
+		1229743A2BBCB7DF004DACCC /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122974392BBCB7DF004DACCC /* State.swift */; };
+		1229743C2BBCBA3F004DACCC /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1229743B2BBCBA3F004DACCC /* Test.swift */; };
+		1229743E2BBDFD8C004DACCC /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1229743D2BBDFD8C004DACCC /* Action.swift */; };
 		123B95182B9F5EE600AB5943 /* EventsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123B95172B9F5EE600AB5943 /* EventsPage.swift */; };
 		126AF2952B9A6D9000ECF01F /* AllEventsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */; };
 		126AF2972B9A740800ECF01F /* PublicEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126AF2962B9A740800ECF01F /* PublicEvents.swift */; };
@@ -51,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		122974372BBCB7A4004DACCC /* Hueristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hueristic.swift; sourceTree = "<group>"; };
+		122974392BBCB7DF004DACCC /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		1229743B2BBCBA3F004DACCC /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		1229743D2BBDFD8C004DACCC /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		123B95172B9F5EE600AB5943 /* EventsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsPage.swift; sourceTree = "<group>"; };
 		126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllEventsPage.swift; path = ../AllEventsPage.swift; sourceTree = "<group>"; };
 		126AF2962B9A740800ECF01F /* PublicEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublicEvents.swift; path = ../PublicEvents.swift; sourceTree = "<group>"; };
@@ -125,6 +133,10 @@
 				76E964C82B18D69000A9A09A /* graph.swift */,
 				76E964CA2B18D69000A9A09A /* graphElements.swift */,
 				76E964C92B18D69000A9A09A /* backend_main.swift */,
+				122974372BBCB7A4004DACCC /* Hueristic.swift */,
+				122974392BBCB7DF004DACCC /* State.swift */,
+				1229743D2BBDFD8C004DACCC /* Action.swift */,
+				1229743B2BBCBA3F004DACCC /* Test.swift */,
 			);
 			path = backend;
 			sourceTree = "<group>";
@@ -351,12 +363,16 @@
 				126AF2972B9A740800ECF01F /* PublicEvents.swift in Sources */,
 				CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */,
 				86AF5C442B9AD73700D128D9 /* EventList.swift in Sources */,
+				1229743C2BBCBA3F004DACCC /* Test.swift in Sources */,
 				F07B13272B9C090C0051763C /* CalendarVC.swift in Sources */,
+				1229743A2BBCB7DF004DACCC /* State.swift in Sources */,
 				76E964CC2B18D69000A9A09A /* graph.swift in Sources */,
+				122974382BBCB7A4004DACCC /* Hueristic.swift in Sources */,
 				CA5F84592AE87AFB0074301B /* CustomARViewRep.swift in Sources */,
 				76E964CD2B18D69000A9A09A /* backend_main.swift in Sources */,
 				CA5F842E2AE87A010074301B /* ContentView.swift in Sources */,
 				CA5F84572AE87A7D0074301B /* CustomARView.swift in Sources */,
+				1229743E2BBDFD8C004DACCC /* Action.swift in Sources */,
 				126AF2992B9AB8D000ECF01F /* ClubEvents.swift in Sources */,
 				76E964CB2B18D69000A9A09A /* building.swift in Sources */,
 				CA5F842C2AE87A010074301B /* ar_viewApp.swift in Sources */,
@@ -595,7 +611,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CZDN5X5UP2;
+				DEVELOPMENT_TEAM = 6UX42FB23A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -615,7 +631,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CZDN5X5UP2;
+				DEVELOPMENT_TEAM = 6UX42FB23A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
