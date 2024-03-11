@@ -15,6 +15,7 @@
 		76E964CC2B18D69000A9A09A /* graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E964C82B18D69000A9A09A /* graph.swift */; };
 		76E964CD2B18D69000A9A09A /* backend_main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E964C92B18D69000A9A09A /* backend_main.swift */; };
 		76E964CE2B18D69000A9A09A /* graphElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E964CA2B18D69000A9A09A /* graphElements.swift */; };
+		86AF5C442B9AD73700D128D9 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF5C432B9AD73700D128D9 /* EventList.swift */; };
 		B9677C192B21DB2A00EFC218 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9677C182B21DB2A00EFC218 /* QRCodeScannerView.swift */; };
 		CA5F842C2AE87A010074301B /* ar_viewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F842B2AE87A010074301B /* ar_viewApp.swift */; };
 		CA5F842E2AE87A010074301B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F842D2AE87A010074301B /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 		76E964C82B18D69000A9A09A /* graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graph.swift; sourceTree = "<group>"; };
 		76E964C92B18D69000A9A09A /* backend_main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backend_main.swift; sourceTree = "<group>"; };
 		76E964CA2B18D69000A9A09A /* graphElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graphElements.swift; sourceTree = "<group>"; };
+		86AF5C432B9AD73700D128D9 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		B9677C182B21DB2A00EFC218 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
 		CA5F84282AE87A010074301B /* ar_view.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ar_view.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA5F842B2AE87A010074301B /* ar_viewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ar_viewApp.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				126AF2942B9A6D9000ECF01F /* AllEventsPage.swift */,
 				126AF2982B9AB8D000ECF01F /* ClubEvents.swift */,
 				CA5F84562AE87A7D0074301B /* CustomARView.swift */,
+				86AF5C432B9AD73700D128D9 /* EventList.swift */,
 				CA5F842D2AE87A010074301B /* ContentView.swift */,
 				126AF2962B9A740800ECF01F /* PublicEvents.swift */,
 				CA5F84582AE87AFB0074301B /* CustomARViewRep.swift */,
@@ -331,6 +334,7 @@
 				76E964CE2B18D69000A9A09A /* graphElements.swift in Sources */,
 				126AF2972B9A740800ECF01F /* PublicEvents.swift in Sources */,
 				CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */,
+				86AF5C442B9AD73700D128D9 /* EventList.swift in Sources */,
 				76E964CC2B18D69000A9A09A /* graph.swift in Sources */,
 				CA5F84592AE87AFB0074301B /* CustomARViewRep.swift in Sources */,
 				76E964CD2B18D69000A9A09A /* backend_main.swift in Sources */,
