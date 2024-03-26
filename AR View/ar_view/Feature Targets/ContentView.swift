@@ -70,7 +70,7 @@ struct ContentView: View {
                         .padding(.top, 10)
                         .padding(.bottom, 20)
                     // NavigationLink to transition to ARViewWithBars when "Start AR View" is tapped.
-                    NavigationLink(destination: ARViewWithBars(roomNum: $roomNumber).ignoresSafeArea()) {
+                    NavigationLink(destination: ARViewWithBars(roomNum: $roomNumber).ignoresSafeArea().navigationBarBackButtonHidden(true)) {
                     //NavigationLink(destination: EventsView()) {
                         Text("Start AR View")
                             .bold()
@@ -93,6 +93,7 @@ struct ContentView: View {
                             }
                             */
                     }
+
                     Button(action: {
                         self.isShowingScanner = true
                     }) {

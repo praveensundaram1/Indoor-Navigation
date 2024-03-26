@@ -38,6 +38,7 @@ class CalendarVC: DayViewController {
             }
         }
     }
+
     
     
     override func eventsForDate(_ date: Date)  -> [any EventDescriptor] {
@@ -66,7 +67,13 @@ class CalendarVC: DayViewController {
         return calendarKitEvents
     }
     
+    override func dayViewDidSelectEventView(_ eventView: EventView) {
+        print("Event has been selected: \(String(describing: eventView.descriptor))")
+        
+    }
+    
 }
+
 
 
 //Convert from UIKit to SwiftUI

@@ -49,6 +49,10 @@ struct AllEventsView: View {
                                         .foregroundColor(.white)
                                         .padding()
                                         .bold()
+                                    Text(event.time)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .bold()
 //                                        .background(Color.white)
 //                                        .cornerRadius(10)
                                 }
