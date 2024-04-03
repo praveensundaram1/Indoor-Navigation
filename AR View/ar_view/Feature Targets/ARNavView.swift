@@ -13,9 +13,9 @@ struct ARViewWithBars: View {
     @State private var direction = "" // State variable to store the navigation direction.
     @Binding var roomNum: String // Binding to the room number entered by the user.
     @State private var isClicked = false
-    
     @State private var calendarPresented = false // State variable to control calendarView behavior.
-    @State var showToast = false
+    @Binding var showToast: Bool // Add this line
+    @Binding var destinationInfo: [String]
 
     
     var body: some View {
@@ -28,70 +28,6 @@ struct ARViewWithBars: View {
             
 
             VStack {
-////                HStack {
-////                    
-//////                    Button(action: {
-//////                                    self.showToast.toggle()
-//////                                }) {
-//////                                    Text("Show Toast")
-//////                                        .foregroundColor(.black)
-//////                                }
-//////                            .present(isPresented: self.$showToast, type: .toast, position: .top) {
-//////                               /// create your own view for toast
-//////                                self.createTopToastView()
-//////                    }
-////                
-////                    
-////                    Spacer()
-////                    if isFlashing {
-////                        Text("Turn Around")
-////                            .font(.title)
-////                            .foregroundColor(Color.white)
-////                            .multilineTextAlignment(.center)
-////                            .padding()
-////                        
-////                        Image(systemName: "arrow.clockwise")
-////                            .resizable()
-////                            .frame(width: 24, height: 24)
-////                            .foregroundColor(Color.white)
-////                            .padding()
-////                    } else {
-////                        Text(direction)
-////                            .font(.title)
-////                            .foregroundColor(Color.white)
-////                            .multilineTextAlignment(.center)
-////                            .padding()
-////                    }
-////                    Spacer()
-////                }
-////                
-////                .padding(.top)
-////                .background(Color.blue.opacity(0.5))
-////                .frame(height: 120) // Adjust the height of the top bar
-//
-//                Spacer()
-////                Spacer()
-////                Button(action: {calendarPresented = true}, label: {
-////                    Text("Calendar")
-////                        .bold()
-////                        .font(.system(size: 20))
-////                        .foregroundColor(.black)
-////                        .padding()
-////                        .background(Color.green)
-////                        .cornerRadius(10)
-////                }).sheet(isPresented: $calendarPresented) {
-////                           CalendarView()
-////                }
-//
-//                HStack {
-//                    Spacer()
-//                    Text("")
-//                        .font(.title)
-//                        .foregroundColor(Color.white)
-//                        .multilineTextAlignment(.center)
-//                        .padding()
-//                    Spacer()
-//                }
                 Spacer(minLength: UIScreen.main.bounds.height - 150)
                 VStack {
                     HStack(alignment: .bottom) {
@@ -137,21 +73,15 @@ struct ARViewWithBars: View {
                                 .cornerRadius(10)
                         }
                         Spacer(minLength: 5)
-                        
                     }
-//                    .padding(10)
-//                    .background().cornerRadius(20)
-
                 }
-//                .padding(.bottom)
-                
                 .frame(width: UIScreen.main.bounds.width-80) // Adjust the height of the bottom bar
                 .padding(15)
-                .background(Color(red: 0.55, green: 0.65, blue: 0.56)).cornerRadius(10)
+                .background(Color(red: 0.55, green: 0.65, blue: 0.56).opacity(0.3)).cornerRadius(10)
                 Spacer(minLength: 50)
 
             }
-            .present(isPresented: self.$showToast, type: .floater(verticalPadding: CGFloat(75)), position: .top, autohideDuration: 10000.0) {
+            .present(isPresented: self.$showToast, type: .floater(verticalPadding: CGFloat(75)), position: .top, autohideDuration: Double.infinity) {
                 /// create your own view for toast
                 self.createTopToastView()
             }
@@ -163,15 +93,10 @@ struct ARViewWithBars: View {
         VStack(alignment: .center) {
                 Spacer(minLength: 10)
                 HStack() {
-//                    Image("mike")
-//                        .resizable()
-//                        .aspectRatio(contentMode: ContentMode.fill)
-//                        .frame(width: 50, height: 50)
-//                        .cornerRadius(25)
 
                     VStack(alignment: .leading, spacing: 2) {
                         HStack {
-                            Text("Navigating in: CS Building")
+                            Text("Navigating in: " + destinationInfo[0])
                                 .font(.system(size: 20, weight: .heavy))
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
@@ -182,21 +107,23 @@ struct ARViewWithBars: View {
                                 .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                         }
                         HStack {
-                            Text("Go to room 3109 on the third floor")
+                            Text(destinationInfo[1])
                                 .lineLimit(2)
                                 .font(.system(size: 16))
                                 .foregroundColor(.white)
                             Spacer(minLength: 5)
                             Button(action: {
                                 self.isClicked = true
+                                self.showToast = false
                             }) {
-                                Text("X")
+                                Image(systemName: "xmark")
                                     .bold()
                                     .font(.system(size: 40))
                                     .foregroundColor(.white)
                                     .frame(width: 40, height: 40, alignment: .center)
+                                    .padding(10)
                                     .background(Color(red: 0.85, green: 0.15, blue: 0.2))
-                                    .cornerRadius(10)
+                                    .cornerRadius(20)
                             }
                         }
                     }
@@ -204,7 +131,7 @@ struct ARViewWithBars: View {
                 Spacer(minLength: 10)
             }
             .frame(width: UIScreen.main.bounds.width-40, height: 100)
-            .background(Color(red: 0.55, green: 0.65, blue: 0.56))
+            .background(.black.opacity(0.8))
             .zIndex(1)
             .cornerRadius(10)
         }
