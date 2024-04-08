@@ -82,7 +82,7 @@ struct EventsView: View {
                     .frame(maxHeight: .infinity)
                 }
             }
-            .background(Color.offGreen)
+//            .background(.systemBackground)
 
         }
     }
@@ -110,7 +110,7 @@ struct CircleButtonStyle: ButtonStyle {
             .padding(20) // Adjust padding to ensure the text fits within the circle
             .background(
                 Circle()
-                    .fill(Color.offWhite)
+                    .fill(Color.offBlue)
                     .frame(width: 150, height: 150) // Explicitly size the circle
                     .shadow(color: Color.black.opacity(configuration.isPressed ? 0.2 : 0.7), radius: 10, x: configuration.isPressed ? -5 : 10, y: configuration.isPressed ? -5 : 10)
                     .shadow(color: Color.white.opacity(configuration.isPressed ? 0.7 : 0.2), radius: 10, x: configuration.isPressed ? 10 : -5, y: configuration.isPressed ? 10 : -5)
@@ -119,7 +119,7 @@ struct CircleButtonStyle: ButtonStyle {
     }
 }
 extension Color {
-    static let offWhite = Color(red: 0.85, green: 0.65, blue: 0.56)
+    static let offBlue = Color(red: 0.271, green: 0.557, blue: 0.969)
     static let offGreen = Color(red: 0.55, green: 0.65, blue: 0.56)
 //    static let offB = Color(red: 0.55, green: 0.65, blue: 0.56)
 
