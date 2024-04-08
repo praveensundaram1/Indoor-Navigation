@@ -66,8 +66,8 @@ struct EventsView: View {
                             .buttonStyle(CircleButtonStyle())
                         }
                         GridRow {
-                            NavigationLink(destination: PublicEventsView()) {
-                                textLabelStylize(text: "Public Events", color: .blue)
+                            NavigationLink(destination: SwipeActionView()) {
+                                textLabelStylize(text: "Inbox Test", color: .blue)
                             }
                             .buttonStyle(CircleButtonStyle())
 

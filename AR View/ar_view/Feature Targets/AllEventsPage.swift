@@ -18,6 +18,13 @@ import SwiftUI
 //    ])
 //}
 
+
+
+
+
+
+// original working stuff
+
 struct AllEventsView: View {
     init() {
             // Call addMockEvents() here to set up your mock events
@@ -46,54 +53,37 @@ struct AllEventsView: View {
                             ForEach(0..<EventList.getEventListSize()) { index in
                                 if let event = EventList.getEvent(at: index) {
                                     Text(event.title)
+                                        .padding()
+                                        .background(Color.blue)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(10)
+                                        .swipeActions {
+                                            Button(role: .destructive) {
+                                                // Remove the event from the list
+                                                /*
+                                                if let index = EventList.events.firstIndex(where: { $0.title == event.title }) {
+                                                    EventList.removeEvent(at: index)
+                                                }
+                                                 */
+                                            } label: {
+                                                Label("Delete", systemImage: "trash")
+                                            }
+                                        }
+                                    /*
+                                    Text(event.title)
                                         .foregroundColor(.white)
                                         .padding()
                                         .bold()
 //                                        .background(Color.white)
 //                                        .cornerRadius(10)
+                                     */
                                 }
                             }
                         }
                     }
-                    // .padding()
-                        //.frame(width: 100, height: 400, alignment: .topLeading)
-                        //.padding(.top, 5)
-                    // NavigationLink to transition to ARViewWithBars when "Start AR View" is tapped.
-//                    Grid(horizontalSpacing: 30, verticalSpacing: 30){
-//                        GridRow {
-//                            NavigationLink(destination: PublicEventsView()) {
-//                                Text("Public Events")
-//                                    .bold()
-//                                    .font(.system(size: 20))
-//                                    .foregroundColor(.white)
-//                                    .padding()
-//                                    .background(Color.blue)
-//                                    .cornerRadius(10)
-//                            }
-//                            NavigationLink(destination: ClubEventsView()) {
-//                                Text("Club Events")
-//                                    .bold()
-//                                    .font(.system(size: 20))
-//                                    .foregroundColor(.white)
-//                                    .padding()
-//                                    .background(Color.blue)
-//                                    .cornerRadius(10)
-//                            }
-//                        }
-                        
-                        //                    NavigationLink(destination: OHEventsView()) {
-                        //                        Text("Public Events")
-                        //                            .bold()
-                        //                            .font(.system(size: 20))
-                        //                            .foregroundColor(.white)
-                        //                            .padding()
-                        //                            .background(Color.blue)
-                        //                            .cornerRadius(10)
-                        //                    }
-//                    }
-                    
                 }
             }
         }
     }
 }
+
