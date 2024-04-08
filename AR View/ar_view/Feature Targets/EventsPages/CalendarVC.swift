@@ -38,6 +38,7 @@ class CalendarVC: DayViewController {
             }
         }
     }
+
     
     
     override func eventsForDate(_ date: Date)  -> [any EventDescriptor] {
@@ -66,7 +67,29 @@ class CalendarVC: DayViewController {
         return calendarKitEvents
     }
     
+    
+    override func dayViewDidSelectEventView(_ eventView: EventView) {
+        super.dayViewDidSelectEventView(eventView)
+        
+        // Prepare the state to control the toast visibility
+        let showToastState = Binding<Bool>(get: { true }, set: { _ in })
+        
+        // Initialize ARViewWithBars with the showToast state
+        let arViewWithBars = ARViewWithBars(roomNum: .constant("Your Room Num"), showToast: showToastState, destinationInfo: .constant(["CS Building", "Go to room 3109 on the third floor"]))
+        
+        // Wrap ARViewWithBars in a UIHostingController for UIKit presentation
+        let hostingController = UIHostingController(rootView: NavigationView { arViewWithBars })
+        hostingController.modalPresentationStyle = .fullScreen
+//        hostingController.navigationItem.hidesBackButton = true
+//        hostingController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
+        self.navigationController?.pushViewController(hostingController, animated: true)
+//        self.present(hostingController, animated: true, completion: nil)
+    }
 }
+
+
+
 
 
 //Convert from UIKit to SwiftUI

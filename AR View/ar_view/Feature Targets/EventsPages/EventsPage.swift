@@ -27,41 +27,41 @@ struct EventsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [.white, .blue]),
-                               startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .edgesIgnoringSafeArea(.all)
+//                LinearGradient(gradient: Gradient(colors: [.white, .blue]),
+//                               startPoint: .topLeading, endPoint: .bottomTrailing)
+//                    .edgesIgnoringSafeArea(.all)
 
                 VStack(spacing: 30) {
                     Text("Events")
                         .bold()
-                        .font(.system(size: 32, weight: .medium, design: .default))
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.system(size: 32, weight: .heavy, design: .default))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .center)
                     Spacer()
-                    Grid(horizontalSpacing: 30, verticalSpacing: 100) {
+                    Grid(horizontalSpacing: 30, verticalSpacing: 150) {
                         GridRow {
                             Button(action: {
                                 self.isClicked = true
                             }) {
-                                textLabelStylize(text: "My Events", color: .green)
+                                textLabelStylize(text: "My Events", color: .white)
                             }
                             .buttonStyle(CircleButtonStyle())
 
                             NavigationLink(destination: CalendarView()) {
-                                textLabelStylize(text: "My Calendar", color: .green)
+                                textLabelStylize(text: "My Calendar", color: .white)
                             }
                             .buttonStyle(CircleButtonStyle())
                         }
                         GridRow {
                             NavigationLink(destination: AllEventsView()) {
-                                textLabelStylize(text: "All Events", color: .blue)
+                                textLabelStylize(text: "All Events", color: .white)
                             }
                             .buttonStyle(CircleButtonStyle())
 
                             Button(action: {
                                 self.isClicked = true
                             }) {
-                                textLabelStylize(text: "Office Hours", color: .blue)
+                                textLabelStylize(text: "Office Hours", color: .white)
                             }
                             .buttonStyle(CircleButtonStyle())
                         }
@@ -72,7 +72,7 @@ struct EventsView: View {
                             .buttonStyle(CircleButtonStyle())
 
                             NavigationLink(destination: ClubEventsView()) {
-                                textLabelStylize(text: "Club Events", color: .blue)
+                                textLabelStylize(text: "Club Events", color: .white)
                             }
                             .buttonStyle(CircleButtonStyle())
                         }
@@ -82,6 +82,8 @@ struct EventsView: View {
                     .frame(maxHeight: .infinity)
                 }
             }
+            .background(Color.offGreen)
+
         }
     }
 }
@@ -117,7 +119,10 @@ struct CircleButtonStyle: ButtonStyle {
     }
 }
 extension Color {
-    static let offWhite = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
+    static let offWhite = Color(red: 0.85, green: 0.65, blue: 0.56)
+    static let offGreen = Color(red: 0.55, green: 0.65, blue: 0.56)
+//    static let offB = Color(red: 0.55, green: 0.65, blue: 0.56)
+
 }
 
 

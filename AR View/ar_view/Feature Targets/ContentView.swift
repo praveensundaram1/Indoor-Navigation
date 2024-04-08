@@ -70,7 +70,8 @@ struct ContentView: View {
                         .padding(.top, 10)
                         .padding(.bottom, 20)
                     // NavigationLink to transition to ARViewWithBars when "Start AR View" is tapped.
-                    NavigationLink(destination: ARViewWithBars(roomNum: $roomNumber).ignoresSafeArea()) {
+                    let showToastState = Binding<Bool>(get: { false }, set: { _ in })
+                    NavigationLink(destination: ARViewWithBars(roomNum: $roomNumber, showToast: showToastState, destinationInfo: .constant(["",""])).ignoresSafeArea().navigationBarBackButtonHidden(true)) {
                     //NavigationLink(destination: EventsView()) {
                         Text("Start AR View")
                             .bold()
@@ -79,20 +80,8 @@ struct ContentView: View {
                             .padding()
                             .background(Color.blue)
                             .cornerRadius(10)
-                            /*
-                            // testing out usage of EventList
-                            .onTapGesture {
-                                // Call printEvents function here
-                                EventList.addMockEvents()
-                                EventList.printEvents()
-                                // print the title of the event at index 3
-                                let index: Int = 3
-                                if let event = EventList.getEvent(at: index) {
-                                    print("The title of the event at index \(index) is \(event.title)")
-                                }
-                            }
-                            */
                     }
+
                     Button(action: {
                         self.isShowingScanner = true
                     }) {
@@ -119,50 +108,6 @@ struct ContentView: View {
                         }
                     }
                     Spacer()
-                    /*
-                    HStack {
-                        Button(action: {
-                            // Button action here
-                        }) {
-                            Text("Button 1")
-                                .bold()
-                                .font(.system(size: 20))
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.red)
-                                .cornerRadius(10)
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Button action here
-                        }) {
-                            Text("Button 2")
-                                .bold()
-                                .font(.system(size: 20))
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.green)
-                                .cornerRadius(10)
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Button action here
-                        }) {
-                            Text("Button 3")
-                                .bold()
-                                .font(.system(size: 20))
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                        }
-                    }
-                    .padding(.bottom, 20)
-                     */
                 }
             }
         }
