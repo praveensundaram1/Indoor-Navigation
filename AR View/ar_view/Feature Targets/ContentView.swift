@@ -78,7 +78,7 @@ struct ContentView: View {
                             .font(.system(size: 20))
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color.blue)
+                            .background(Color(red: 0.271, green: 0.557, blue: 0.969))
                             .cornerRadius(10)
                     }
 
@@ -88,9 +88,9 @@ struct ContentView: View {
                         Text("Scan QR Code")
                             .bold()
                             .font(.system(size: 20))
-                            .foregroundColor(.white)
+                            .foregroundColor(Color(red: 0.271, green: 0.557, blue: 0.969))
                             .padding()
-                            .background(Color.green)
+                            .background(Color.white)
                             .cornerRadius(10)
                     }
                     .sheet(isPresented: $isShowingScanner) {

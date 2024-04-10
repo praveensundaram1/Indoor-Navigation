@@ -32,6 +32,8 @@
 		CA5F84592AE87AFB0074301B /* CustomARViewRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F84582AE87AFB0074301B /* CustomARViewRep.swift */; };
 		CA72D36D2B1E9B23003F6C4C /* ARNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */; };
 		CAE12A4B2AE9BE330013660E /* Arrow.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CAE12A4A2AE9BE330013660E /* Arrow.usdz */; };
+		F00C08C52BC7150C00C6360D /* MyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C08C42BC7150C00C6360D /* MyEventsView.swift */; };
+		F00C08C72BC7155D00C6360D /* OfficeHoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C08C62BC7155D00C6360D /* OfficeHoursView.swift */; };
 		F00C1A9A2B93A64000684DBA /* Room.scn in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A992B93A64000684DBA /* Room.scn */; };
 		F00E7E6A2BAB53970085CB6A /* SSToastMessage in Frameworks */ = {isa = PBXBuildFile; productRef = F00E7E692BAB53970085CB6A /* SSToastMessage */; };
 		F07B13272B9C090C0051763C /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B13262B9C090C0051763C /* CalendarVC.swift */; };
@@ -84,6 +86,8 @@
 		CA5F84582AE87AFB0074301B /* CustomARViewRep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARViewRep.swift; sourceTree = "<group>"; };
 		CA72D36C2B1E9B23003F6C4C /* ARNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARNavView.swift; sourceTree = "<group>"; };
 		CAE12A4A2AE9BE330013660E /* Arrow.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Arrow.usdz; path = ar_view/Arrow.usdz; sourceTree = SOURCE_ROOT; };
+		F00C08C42BC7150C00C6360D /* MyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsView.swift; sourceTree = "<group>"; };
+		F00C08C62BC7155D00C6360D /* OfficeHoursView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeHoursView.swift; sourceTree = "<group>"; };
 		F00C1A992B93A64000684DBA /* Room.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Room.scn; sourceTree = "<group>"; };
 		F07B13262B9C090C0051763C /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,10 +126,12 @@
 				126AF2982B9AB8D000ECF01F /* ClubEvents.swift */,
 				86AF5C432B9AD73700D128D9 /* EventList.swift */,
 				126AF2962B9A740800ECF01F /* PublicEvents.swift */,
+				F00C08C62BC7155D00C6360D /* OfficeHoursView.swift */,
 				123B95172B9F5EE600AB5943 /* EventsPage.swift */,
 				F07B13262B9C090C0051763C /* CalendarVC.swift */,
 				8620C7862BBDF1DB00E580C8 /* SwipeActionView.swift */,
 				8620C7882BBDF22B00E580C8 /* InboxItemView.swift */,
+				F00C08C42BC7150C00C6360D /* MyEventsView.swift */,
 			);
 			path = EventsPages;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F00C08C72BC7155D00C6360D /* OfficeHoursView.swift in Sources */,
 				8620C7872BBDF1DB00E580C8 /* SwipeActionView.swift in Sources */,
 				8620C7812BBDEF3200E580C8 /* MessagesViewModel.swift in Sources */,
 				76E964CE2B18D69000A9A09A /* graphElements.swift in Sources */,
@@ -392,6 +399,7 @@
 				CA5F842E2AE87A010074301B /* ContentView.swift in Sources */,
 				CA5F84572AE87A7D0074301B /* CustomARView.swift in Sources */,
 				8620C7892BBDF22B00E580C8 /* InboxItemView.swift in Sources */,
+				F00C08C52BC7150C00C6360D /* MyEventsView.swift in Sources */,
 				126AF2992B9AB8D000ECF01F /* ClubEvents.swift in Sources */,
 				76E964CB2B18D69000A9A09A /* building.swift in Sources */,
 				CA5F842C2AE87A010074301B /* ar_viewApp.swift in Sources */,
@@ -563,7 +571,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ar_view/Preview Content\"";
-				DEVELOPMENT_TEAM = Q7W98PL726;
+				DEVELOPMENT_TEAM = T65FDJN443;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ar-view-Info.plist";
@@ -581,7 +589,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "llock-INV-3";
+				PRODUCT_BUNDLE_IDENTIFIER = "llock-INV-4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -598,7 +606,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ar_view/Preview Content\"";
-				DEVELOPMENT_TEAM = Q7W98PL726;
+				DEVELOPMENT_TEAM = T65FDJN443;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ar-view-Info.plist";
@@ -616,7 +624,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "llock-INV-3";
+				PRODUCT_BUNDLE_IDENTIFIER = "llock-INV-4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -82,7 +82,7 @@ struct ARViewWithBars: View {
                 Spacer(minLength: 50)
 
             }
-            .present(isPresented: self.$showToast, type: .floater(verticalPadding: CGFloat(75)), position: .top, autohideDuration: Double.infinity){
+            .present(isPresented: self.$showToast, type: .floater(verticalPadding: CGFloat(90)), position: .top, autohideDuration: Double.infinity){
                 /// create your own view for toast
                 self.createTopToastView()
             }
@@ -94,6 +94,7 @@ struct ARViewWithBars: View {
         }
         .ignoresSafeArea()
     }
+
     func createTopToastView() -> some View {
         VStack(alignment: .center) {
                 Spacer(minLength: 10)
