@@ -36,6 +36,7 @@
 		F00C08C72BC7155D00C6360D /* OfficeHoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C08C62BC7155D00C6360D /* OfficeHoursView.swift */; };
 		F00C1A9A2B93A64000684DBA /* Room.scn in Resources */ = {isa = PBXBuildFile; fileRef = F00C1A992B93A64000684DBA /* Room.scn */; };
 		F00E7E6A2BAB53970085CB6A /* SSToastMessage in Frameworks */ = {isa = PBXBuildFile; productRef = F00E7E692BAB53970085CB6A /* SSToastMessage */; };
+		F04A22792BCF638100C39351 /* SCNPath in Frameworks */ = {isa = PBXBuildFile; productRef = F04A22782BCF638100C39351 /* SCNPath */; };
 		F07B13272B9C090C0051763C /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B13262B9C090C0051763C /* CalendarVC.swift */; };
 		F07B132B2B9C0B110051763C /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = F07B132A2B9C0B110051763C /* CalendarKit */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04A22792BCF638100C39351 /* SCNPath in Frameworks */,
 				F00E7E6A2BAB53970085CB6A /* SSToastMessage in Frameworks */,
 				F07B132B2B9C0B110051763C /* CalendarKit in Frameworks */,
 			);
@@ -264,6 +266,7 @@
 			packageProductDependencies = (
 				F07B132A2B9C0B110051763C /* CalendarKit */,
 				F00E7E692BAB53970085CB6A /* SSToastMessage */,
+				F04A22782BCF638100C39351 /* SCNPath */,
 			);
 			productName = ar_view;
 			productReference = CA5F84282AE87A010074301B /* ar_view.app */;
@@ -340,6 +343,7 @@
 			packageReferences = (
 				F07B13282B9C0A150051763C /* XCRemoteSwiftPackageReference "CalendarKit" */,
 				F00E7E682BAB53970085CB6A /* XCRemoteSwiftPackageReference "SSToastMessage" */,
+				F04A22772BCF634100C39351 /* XCRemoteSwiftPackageReference "ARKit-SCNPath" */,
 			);
 			productRefGroup = CA5F84292AE87A010074301B /* Products */;
 			projectDirPath = "";
@@ -758,6 +762,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F04A22772BCF634100C39351 /* XCRemoteSwiftPackageReference "ARKit-SCNPath" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/ARKit-SCNPath.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		F07B13282B9C0A150051763C /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
@@ -773,6 +785,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F00E7E682BAB53970085CB6A /* XCRemoteSwiftPackageReference "SSToastMessage" */;
 			productName = SSToastMessage;
+		};
+		F04A22782BCF638100C39351 /* SCNPath */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F04A22772BCF634100C39351 /* XCRemoteSwiftPackageReference "ARKit-SCNPath" */;
+			productName = SCNPath;
 		};
 		F07B132A2B9C0B110051763C /* CalendarKit */ = {
 			isa = XCSwiftPackageProductDependency;

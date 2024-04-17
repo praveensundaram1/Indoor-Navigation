@@ -18,8 +18,6 @@ class ARCoordinator: NSObject {
 
 // CustomARViewRep is a SwiftUI representation of a UIViewController for AR functionality.
 struct CustomARViewRep: UIViewControllerRepresentable {
-    @Binding var isFlashing: Bool
-    @Binding var direction: String
     @Binding var roomNum: String
     
     // Create and return an instance of ARCoordinator.
@@ -39,9 +37,6 @@ struct CustomARViewRep: UIViewControllerRepresentable {
     func updateUIViewController(_ uiView: CustomARView, context: Context) {
         // Ensure updates are performed on the main thread.
         DispatchQueue.main.async {
-            // Update AR view properties based on SwiftUI state.
-            uiView.isFlashing = isFlashing
-            uiView.direction = direction
             uiView.roomNum = roomNum
         }
     }
