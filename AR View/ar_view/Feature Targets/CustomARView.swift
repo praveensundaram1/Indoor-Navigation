@@ -24,12 +24,7 @@ class CustomARView: UIViewController, ARSCNViewDelegate {
     var isUserFacingAnchor = false
     
     var coordinator: ARCoordinator?
-    var pathNode = SCNPathNode(path: [
-        // X Y Z (-Y because below camera,-Z because back of camera)
-        SCNVector3(0, -1, 0), //Test Anchor Origin
-        SCNVector3(0, -1, -5), //Test anchor 5 m in front
-        SCNVector3(1, -1, -5) //Test anchor 5 m in front 1 m left
-      ])
+
     
     
     var roomNum = ""
@@ -38,7 +33,52 @@ class CustomARView: UIViewController, ARSCNViewDelegate {
         super.viewDidLoad()
         
         //init backend
-        getRoomScanInfo()
+//        getRoomScanInfo()
+        let url = URL(string: "https://lastlock.shreymodi.tech/find_path")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let parameters: [String: Any] = [
+            "name": "Final Demo",
+            "start": [
+                0,
+                1
+            ],
+            "end": [
+                -8,
+                15
+            ]
+        ]
+
+        var list_of_points: [SCNVector3] = []
+        request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+            } else if let data = data {
+                let str = String(data: data, encoding: .utf8)
+                print("Received data:\n\(str ?? "")")
+                let data = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let path = data["path"] as! [[Double]]
+
+                for coordinates in path {
+                    if coordinates.count == 2 {
+                        // should be coordinates[0], 0.0, coordinates[1]
+                        // add to pathNode
+                        list_of_points.append(SCNVector3(coordinates[0], -1.0, coordinates[1]))
+                    }
+                }
+
+            }
+        }
+
+        task.resume()
+        sleep(2)
+        var pathNode = SCNPathNode(path: list_of_points)
+        print(pathNode.path)
+        
         
         // Initialize the scene view
         sceneView = ARSCNView(frame: view.bounds)
@@ -56,13 +96,13 @@ class CustomARView: UIViewController, ARSCNViewDelegate {
         
         // the next chunk of lines are just things I've added to make the path look nicer
         let pathMat = SCNMaterial()
-        self.pathNode.materials = [pathMat]
-        self.pathNode.position.y += 0.05
+        pathNode.materials = [pathMat]
+        pathNode.position.y += 0.05
         pathMat.diffuse.contents = UIImage(named: "path_with_fade")
         
-        self.pathNode.width = 0.5
+        pathNode.width = 0.5
         
-        self.sceneView.scene.rootNode.addChildNode(self.pathNode)
+        self.sceneView.scene.rootNode.addChildNode(pathNode)
     }
     
     
