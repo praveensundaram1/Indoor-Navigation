@@ -12,9 +12,11 @@ import UIKit
 import AVFoundation
 import simd
 import SCNPath
+import CoreLocation
+
 
 // CustomARView is a UIViewController that manages the AR experience for indoor navigation.
-class CustomARView: UIViewController, ARSCNViewDelegate {
+class CustomARView: UIViewController, ARSCNViewDelegate, CLLocationManagerDelegate {
     @IBOutlet var sceneView: ARSCNView!
     var captureSession: AVCaptureSession!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
@@ -25,12 +27,30 @@ class CustomARView: UIViewController, ARSCNViewDelegate {
     
     var coordinator: ARCoordinator?
 
+    var current_angle: Double = 0.0
+
     
     
     var roomNum = ""
     
+    let locationManager = CLLocationManager()
+
+
+
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading heading: CLHeading) {
+        print (heading.magneticHeading)
+        current_angle = heading.magneticHeading
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (CLLocationManager.headingAvailable()) {
+            locationManager.headingFilter = 1
+            locationManager.startUpdatingHeading()
+            locationManager.delegate = self
+        }
         
         //init backend
 //        getRoomScanInfo()
@@ -75,8 +95,48 @@ class CustomARView: UIViewController, ARSCNViewDelegate {
         }
 
         task.resume()
-        sleep(2)
-        var pathNode = SCNPathNode(path: list_of_points)
+        var wait_counter = 0
+        while list_of_points.isEmpty || wait_counter < 8 {
+            wait_counter+=1
+            sleep(1)
+        }
+
+        let starting_angle = 100.8832
+
+        // rotate the path by difference between starting angle and current angle around the origin
+        let angle_diff = starting_angle - locationManager.heading!.magneticHeading
+        let angle_diff_rad = angle_diff * Double.pi / 180.0
+        for i in 0..<list_of_points.count {
+            let x = Double(list_of_points[i].x)
+            let z = Double(list_of_points[i].z)
+            let angle_diff_rad = Double(angle_diff_rad)
+
+            // guard let x = x, let z = z, let angle_diff_rad = angle_diff_rad else {
+            //     print("Error: Unable to convert to Double")
+            //     return
+            // }
+
+            let cos_angle_diff_rad = cos(angle_diff_rad)
+            let sin_angle_diff_rad = sin(angle_diff_rad)
+
+            let x_cos_angle_diff_rad = x * cos_angle_diff_rad
+            let z_sin_angle_diff_rad = z * sin_angle_diff_rad
+            let x_sin_angle_diff_rad = x * sin_angle_diff_rad
+            let z_cos_angle_diff_rad = z * cos_angle_diff_rad
+
+            let new_x = x_cos_angle_diff_rad - z_sin_angle_diff_rad
+            let new_z = x_sin_angle_diff_rad + z_cos_angle_diff_rad
+
+            list_of_points[i].x = Float(new_x)
+            list_of_points[i].z = Float(new_z)
+        }
+
+
+
+
+        
+
+        let pathNode = SCNPathNode(path: list_of_points)
         print(pathNode.path)
         
         
@@ -93,6 +153,7 @@ class CustomARView: UIViewController, ARSCNViewDelegate {
         // Setup Auto Layout constraints for scene view
         setupSceneViewConstraints()
         
+
         
         // the next chunk of lines are just things I've added to make the path look nicer
         let pathMat = SCNMaterial()
@@ -145,9 +206,4 @@ class CustomARView: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        if let planeAnchor = anchor as? ARPlaneAnchor, planeAnchor.alignment == .vertical, let geom = node.geometry as? ARSCNPlaneGeometry {
-            geom.update(from: planeAnchor.geometry)
-        }
-    }
 }

@@ -371,5 +371,5 @@ def floorplan_image():
         return jsonify({"error": str(e)})
 
 if __name__ == '__main__':
-    app.run(debug=True) ##default turn on re-loader, look over any change to files
+    app.run(debug=True, port=8081) ##default turn on re-loader, look over any change to files
                         ##web-based debugger
