@@ -117,19 +117,7 @@ struct ARViewWithBars: View {
                                 .font(.system(size: 16))
                                 .foregroundColor(.white)
                             Spacer(minLength: 5)
-                            Button(action: {
-                                self.isClicked = true
-                                self.showToast = false
-                            }) {
-                                Image(systemName: "xmark")
-                                    .bold()
-                                    .font(.system(size: 40))
-                                    .foregroundColor(.white)
-                                    .frame(width: 40, height: 40, alignment: .center)
-                                    .padding(10)
-                                    .background(Color(red: 0.85, green: 0.15, blue: 0.2))
-                                    .cornerRadius(20)
-                            }
+                            Label("",systemImage: "mappin.circle.fill")
                         }
                     }
                 }.padding(15)
@@ -142,7 +130,7 @@ struct ARViewWithBars: View {
         }
     func createAlert() -> some View {
         VStack(alignment: .center) {
-                Spacer(minLength: 10)
+                Spacer(minLength: 5)
                 HStack() {
 
                     VStack(alignment: .leading, spacing: 2) {
@@ -154,7 +142,7 @@ struct ARViewWithBars: View {
                         }
                     }
                 }.padding(15)
-                Spacer(minLength: 10)
+                Spacer(minLength: 5)
             }
         .frame(width: UIScreen.main.bounds.width-40, height: UIScreen.main.bounds.height/2)
             .background(.green.opacity(0.8))
