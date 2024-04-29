@@ -94,16 +94,15 @@ class CustomARView: UIViewController, ARSCNViewDelegate, CLLocationManagerDelega
                 }
             }
             
-            task.resume()
-            sleep(2)
+
 //            var list_of_points: [SCNVector3] = []
 //            list_of_points.append(SCNVector3(0, -1.0, 0))
 
         task.resume()
         var wait_counter = 0
-        while list_of_points.isEmpty || wait_counter < 8 {
+        while list_of_points.isEmpty && wait_counter < 25 {
             wait_counter+=1
-            sleep(1)
+            usleep(300000)
         }
 
         let starting_angle = 30.001
