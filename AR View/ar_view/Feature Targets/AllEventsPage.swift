@@ -40,7 +40,7 @@ struct AllEventsView: View {
                     // Background NavigationLink to manage navigation programmatically
                     .background(
                         NavigationLink(
-                            destination: ARViewWithBars(roomNum: .constant("Your Room Num"), showToast: Binding.constant(true), destinationInfo: .constant(["CS Building", "Go to room 3109 on the third floor"])),
+                            destination: ARViewWithBars(roomNum: .constant("Your Room Num"), showToast: Binding.constant(true), destinationInfo: .constant(["CS Building", "Go to room 1240 on the first floor"])),
                             tag: event.id,
                             selection: $activeEventId
                         ) {
@@ -53,54 +53,4 @@ struct AllEventsView: View {
             }
         }
     }
-//    @ObservedObject var eventList = EventList()  // ViewModel managing the data
-////    @State private var showingARView = false  // State to manage the presentation of the AR view
-//
-//    var body: some View {
-//        NavigationView {
-////            VStack {
-////                Color.offBlue.ignoresSafeArea()
-//                List {
-//                    ForEach(eventList.events) { event in
-//                        VStack(alignment: .leading) {
-//                            Text(event.title)
-//                                .font(.headline)
-////                                .foregroundColor(Color.offBlue)
-//                            Text(event.description)
-//                                .font(.subheadline)
-////                                .foregroundColor(Color.offBlue)
-//                            Text(event.time)
-//                                .font(.caption)
-////                                .foregroundColor(Color.offBlue)
-//                        }
-//                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
-//                            Button {
-//                                let showDirection = Binding<Bool>(get: { true }, set: { _ in })
-//                                
-//                                // Initialize ARViewWithBars with the showToast state
-//                                let arViewWithBars = ARViewWithBars(roomNum: .constant("Your Room Num"), showToast: showDirection, destinationInfo: .constant(["CS Building", "Go to room 3109 on the third floor"]))
-//                               
-//                                
-//                            } label: {
-//                                Label("Current", systemImage: "mappin")
-//                            }
-//                            .tint(.green)
-//                        }
-//                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-//                            Button(role: .destructive) {
-//                                if let index = eventList.events.firstIndex(where: { $0.id == event.id }) {
-//                                    eventList.removeEvent(at: index)
-//                                }
-//                            } label: {
-//                                Label("Delete", systemImage: "trash")
-//                            }
-//                        }
-//                    }
-//                }
-////                .background(Color.offBlue.ignoresSafeArea())
-//            .navigationTitle("Events")
-//        }
-//
-//    }
-//}
-//
+

@@ -106,7 +106,7 @@ class CustomARView: UIViewController, ARSCNViewDelegate, CLLocationManagerDelega
             sleep(1)
         }
 
-        let starting_angle = 100.8832
+        let starting_angle = 30.001
 
         // rotate the path by difference between starting angle and current angle around the origin
         let angle_diff = starting_angle - locationManager.heading!.magneticHeading

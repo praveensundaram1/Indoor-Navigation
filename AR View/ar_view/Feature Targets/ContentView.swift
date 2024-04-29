@@ -70,8 +70,8 @@ struct ContentView: View {
                         .padding(.top, 10)
                         .padding(.bottom, 20)
                     // NavigationLink to transition to ARViewWithBars when "Start AR View" is tapped.
-                    let showToastState = Binding<Bool>(get: { false }, set: { _ in })
-                    NavigationLink(destination: ARViewWithBars(roomNum: $roomNumber, showToast: showToastState, destinationInfo: .constant(["",""])).ignoresSafeArea().navigationBarBackButtonHidden(true)) {
+                    let showToastState = Binding<Bool>(get: { true }, set: { _ in })
+                    NavigationLink(destination: ARViewWithBars(roomNum: $roomNumber, showToast: showToastState, destinationInfo: .constant(["CS Building", "Go to room 1240 on the first floor"])).ignoresSafeArea().navigationBarBackButtonHidden(true)) {
                     //NavigationLink(destination: EventsView()) {
                         Text("Start AR View")
                             .bold()

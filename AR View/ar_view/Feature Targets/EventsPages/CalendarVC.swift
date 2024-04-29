@@ -75,7 +75,7 @@ class CalendarVC: DayViewController {
         let showToastState = Binding<Bool>(get: { true }, set: { _ in })
         
         // Initialize ARViewWithBars with the showToast state
-        let arViewWithBars = ARViewWithBars(roomNum: .constant("Your Room Num"), showToast: showToastState, destinationInfo: .constant(["CS Building", "Go to room 3109 on the third floor"]))
+        let arViewWithBars = ARViewWithBars(roomNum: .constant("Your Room Num"), showToast: showToastState, destinationInfo: .constant(["CS Building", "Go to room 1240 on the first floor"]))
         
         // Wrap ARViewWithBars in a UIHostingController for UIKit presentation
         let hostingController = UIHostingController(rootView: NavigationView { arViewWithBars })
