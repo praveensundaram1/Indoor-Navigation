@@ -1,14 +1,9 @@
-//
-//  EventList.swift
-//  ar_view
-//
-//  Created by Ethan Xi on 3/7/24.
-//
-
 import Foundation
+import SwiftUI
 
-// Define the Event structure
-struct CustomEvent {
+// Make sure CustomEvent conforms to Identifiable
+struct CustomEvent: Identifiable {
+    var id = UUID()  // Unique identifier for each event
     var title: String
     var description: String
     var date: Date
@@ -17,29 +12,22 @@ struct CustomEvent {
 }
 
 // Define the EventList structure to manage a list of events
-struct EventList {
-    // Static property to hold the list of events
-    static var events: [CustomEvent] = []
-    
-    // Static method to add an event to the list
-    static func addEvent(_ event: CustomEvent) {
-        events.append(event)
+class EventList: ObservableObject {
+    @Published var events: [CustomEvent] = []  // Observable list of events
+
+    init() {
+        addMockEvents()  // Load initial mock data
+    }
+
+    func addEvent(_ event: CustomEvent) {
+            events.append(event)
     }
     
-    // Static method to remove an event from the list
-    static func removeEvent(at index: Int) {
-        guard index >= 0, index < events.count else {
-            return // Index out of bounds
-        }
+    func removeEvent(at index: Int) {
         events.remove(at: index)
     }
-    
-    static func getEventListSize() -> Int {
-        return EventList.events.count
-    }
-    
-    // Function to add mock events to the list
-    static func addMockEvents() {
+
+    func addMockEvents() {
         let event1 = CustomEvent(title: "Birthday Party", description: "Join us for a fun celebration!", date: Date(), time: "3:00 PM", location: "Computer Sciences Conference Center")
         let event2 = CustomEvent(title: "Club Meeting", description: "Robotics club meeting!", date: Date(), time: "6:00 PM", location: "Conference Center")
         let event3 = CustomEvent(title: "Office Hours", description: "Get help with CS639 homework!", date: Date(), time: "11:00 AM", location: "Computer Sciences 154")
@@ -72,29 +60,7 @@ struct EventList {
         addEvent(event13)
         addEvent(event14)
         addEvent(event15)
-        
-        // Add more mock events as needed...
-    }
-    
-    static func printEvents() {
-        for event in events {
-            print("Title: \(event.title)")
-            print("Description: \(event.description)")
-            print("Date: \(event.date)")
-            print("Time: \(event.time)")
-            print("Location: \(event.location)")
-            print("-------------------------")
-        }
-    }
-    
-    static func getEvent(at index: Int) -> CustomEvent? {
-        guard index >= 0, index < events.count else {
-            return nil
-        }
-        return events[index]
     }
 }
 
-// Call the function to add mock events when the file is loaded
-// EventList.addMockEvents()
 
